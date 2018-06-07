@@ -5,78 +5,187 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
   <link rel="icon" type="image/png" href="imagen/tru9y_wg_400x400.png" />
 </head>
+<div class="wrapper">
+  <header class="main-header">
+    <!--Logo-->
+    <br>
+    <img src="../src/imagen/logo_laboratoria-07_(2).png" id='logo' alt="Logo" width=230>
+    <div class="list-page">
+    </div>
+</div>
 
 <body>
+  <!--  
+  <aside class="main-sidebar">
+    <section class="sidebar">
+      <div class="user-panel">
+        <div class="main-image">
+          <img src="../src/imagen/valer.png" width="150" height="150" alt="">
+        </div>
+        <div class="text">
+          <div class="main-text">
+            <h2>Valentina</h2>
+          </div>
+          <div class="main-text">
+            <h3>Training Manager</h3>
+          </div>
+          <div class="main-text">
+            <span class="icon-map-marker"></span>
+            <h4 class="main-text">Chile</h4>
+          </div>
+        </div>
+      </div>
+    </section>
+  </aside>-->
   <section class="container">
+    <aside class="main-sidebar">
+      <section class="sidebar">
+        <div class="user-panel">
+          <div class="main-image">
+            <img src="../src/imagen/valer.png" width="150" height="150" alt="">
+          </div>
+          <div class="text">
+            <div class="main-text">
+              <h2>Valentina</h2>
+            </div>
+            <div class="main-text">
+              <h3>Training Manager</h3>
+            </div>
+            <div class="main-text">
+              <span class="icon-map-marker"></span>
+              <h4 class="main-text">Chile</h4>
+            </div>
+          </div>
+        </div>
+      </section>
+    </aside>
     <div class="row">
       <!-- este es el primer row -->
       <div class="col-12">
         <h1 class="titulo-principal">PROGRESO DE ESTUDIANTES DE LABORATORIA</h1>
       </div>
     </div>
-    <div class="row"><!-- segundo row -->
+    <br>
+    <br>
+    <div class="row">
+      <!-- segundo row -->
       <div class="col-3 seleccionadores">
-          <h3>Sede</h3>
-          <select name="ad" onchange="salta(this.form)">
-            <option selected> ---
-              <option value="xxxx.htm">Brasil
-                <option value="yyyy.htm">Chile
-                  <option value="zzzz.htm">México
-                      <option value="aaaa.htm">Perú
-          </select>
-          </div>
-          <div class="col-3 seleccionadores">
-          <h3>Cohort</h3>
-          <select name="ad" onchange="salta(this.form)">
-            <option selected> ---
-              <option value="xxxx.htm">AM
-                <option value="yyyy.htm">PM
-                  
-          </select>
-        </div>
-        <div class="col-3 seleccionadores">
-            <h3>Alumna</h3>
-          <select name="ad" onchange="salta(this.form)">
-              <option selected> ---
-                <option value="xxxx.htm">texto 1
-                  <option value="yyyy.htm">texto 2
-                    <option value="zzzz.htm">texto 3
-            </select>
-            </div>
-            <div class="col-3 seleccionadores">
-                <h3>Orden</h3>
-                <select name="ad" onchange="salta(this.form)">
-                  <option selected> ---
-                    <option value="xxxx.htm">Ascendente
-                      <option value="yyyy.htm">Descendente
-                        
-                </select>
-        </div>
+        <h3>Sede</h3>
+        <select name="ad" onchange="salta(this.form)">
+          <option selected> ---
+            <option value="xxxx.htm">Brasil
+              <option value="yyyy.htm">Chile
+                <option value="zzzz.htm">México
+                  <option value="aaaa.htm">Perú
+        </select>
+      </div>
+      <div class="col-2 seleccionadores">
+        <h3>Sede</h3>
+        <select name="ad" onchange="salta(this.form)">
+          <option selected> ---
+            <option value="xxxx.htm">Brasil
+              <option value="yyyy.htm">Chile
+                <option value="zzzz.htm">México
+                  <option value="aaaa.htm">Perú
+        </select>
+      </div>
+      <div class="col-2 seleccionadores">
+        <h3>Cohort</h3>
+        <select name="ad" onchange="salta(this.form)">
+          <option selected> ---
+            <option value="xxxx.htm">AM
+              <option value="yyyy.htm">PM
+
+        </select>
+      </div>
+      <div class="col-2 seleccionadores">
+        <h3>Alumna</h3>
+        <select name="ad" onchange="salta(this.form)">
+          <option selected> ---
+            <option value="xxxx.htm">texto 1
+              <option value="yyyy.htm">texto 2
+                <option value="zzzz.htm">texto 3
+        </select>
+      </div>
+      <div class="col-2 seleccionadores">
+        <h3>Orden Progreso</h3>
+        <select name="ad" onchange="salta(this.form)">
+          <option selected> ---
+            <option value="xxxx.htm">Ascendente
+              <option value="yyyy.htm">Descendente
+
+        </select>
+      </div>
     </div>
     <section>
       <br>
-      <br>
-      <div class="row"><!-- tercer row -->
-          <div class="col-2 tabla">Alumna</div>
-          <div class="col-2 tabla">Lecturas</div>
-          <div class="col-2 tabla">Ejercicios autocorregidos</div>
-          <div class="col-2 tabla">Quizzes</div>
-          <div class="col-2 tabla">% total</div>
-        </div>
-        <div class="row"><!-- cuarto row -->
-          <div class="col-2 tabla2"></div>
-          <div class="col-2 tabla2"></div>
-          <div class="col-2 tabla2"></div>
-          <div class="col-2 tabla2"></div>
-          <div class="col-2 tabla2"></div>
-        </div>
+      <div style="overflow-x:auto;">
+        <table>
+          <tr>
+            <th>Nombre alumna(s)</th>
+            <th>Lectura</th>
+            <th>Ejercicios</th>
+            <th>Quizzes</th>
+            <th>% Total</th>
+            <th>Points</th>
+            <th>Points</th>
+          </tr>
+          <tr>
+            <td>Nombre 1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Nombre 2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>Nombre 3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
 
-        <!--  
+      <!--  <div class="row">
+         tercer row 
+        <div class="col-2"></div>
+        <div class="col-2 tabla">Alumna</div>
+        <div class="col-2 tabla">Lecturas</div>
+        <div class="col-2 tabla">Ejercicios autocorregidos</div>
+        <div class="col-2 tabla">Quizzes</div>
+        <div class="col-2 tabla">% total</div>
+      </div>
+      <div class="row">
+         cuarto row 
+        <div class="col-2 tabla3"></div>
+        <div class="col-2 tabla2"></div>
+        <div class="col-2 tabla2"></div>
+        <div class="col-2 tabla2"></div>
+        <div class="col-2 tabla2"></div>
+        <div class="col-2 tabla2"></div>
+      </div> -->
+
+      <!--  
         <div class="col-2 tabla">
           <h4>Alumna</h4>
 
@@ -101,8 +210,8 @@
           <p>Fragmento de un escrito con unidad temática, que queda diferenciado del resto de fragmentos por un punto y aparte y generalmente también por llevar letra mayúscula inicial y un espacio en blanco en el margen izquierdo de alineación del texto principal de la primera línea.</p>
 
     </section>-->
-  </section>
-  <script src="main.js"></script>
+    </section>
+    <script src="main.js"></script>
 </body>
 
 </html>
