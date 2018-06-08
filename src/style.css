@@ -1,0 +1,180 @@
+body {
+  background-color: rgb(250, 250, 250);
+}
+
+h1 {
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin-left: 20%;
+}
+
+h3 {
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+}
+
+.seleccionadores {
+  padding: 2% 7%;
+  margin-left: 20% 
+  
+
+}
+
+.seleccionadores h5{
+  padding: 2% 7%;
+}
+
+.tabla {
+  width: 100%;
+  border: 1px solid black;
+  background-color:rgb(250, 250, 250);
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+  
+}
+
+.contenido {
+  border: 1px solid black;
+}
+.tabla2 {
+  width: 100%;
+  border: 1px solid black;
+  background-color:rgb(250, 250, 250);
+  
+}
+
+body {margin: 0;}
+
+#logo {
+  width: 10%;
+  height: 10%;
+  padding: 2%;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.main-header {
+  background-color: rgb(250, 244, 55);
+  position: relative;
+  max-height: 103px;
+  z-index: 1030;
+  
+}
+* {
+  box-sizing: border-box;
+}
+
+/*menu*/
+
+body {margin: 0;}
+ul.topnav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:  #2b2b2b;
+}
+ul.topnav li {float: left;}
+ul.topnav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+}
+ul.topnav li a:hover:not(.active) {background-color: rgb(255, 0, 155);}
+ul.topnav li a.active {background-color: #4CAF50;}
+ul.topnav li.right {float: right;}
+
+@media screen and (max-width: 600px){
+    ul.topnav li.right, 
+    ul.topnav li {float: none;}
+}
+
+/*Sidebar*/
+
+.main-sidebar {
+  background-color: #2b2b2b;
+  position: absolute;
+  left: 0;
+  padding-top: 50px;
+  height: 1650px;
+  width: 230px;
+}
+.sidebar {
+  height: auto;
+  padding-bottom: 10px;
+}
+.text {
+  text-align: center;
+}
+.main-image img {
+  position: relative;
+  left: 35px;
+}
+.main-text h2 {
+  color: white;
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+}
+.main-text h3, span, h4 {
+  color: #ffc107;
+  position: relative;
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+}
+.main-text span, h4 {
+  display: inline;
+  margin: 0;
+}
+.main-text span {
+  margin-right: 5px;
+}
+
+#logo {
+  height: 20%;
+  width: 20%;
+  margin-top:-5%;
+  margin-right: 81%;
+}
+
+/* tabla */
+ table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 75%;
+  border: 1px solid #ddd;
+  padding-left: 40%;
+  margin-left: 20%;
+  }
+th {
+  text-align: left;
+  padding: 8px;
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+}
+tr:nth-child(even){background-color: #f2f2f2}
+
+td {
+  text-align: left;
+  padding: 8px;
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  font-size: 15px;
+}
+
+.list-page h1 {
+  text-align: right;
+  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  font-size: 30px;
+    
+}
+
+@media screen and (min-width: 50px) and (max-width: 768px) {
+  .seleccionadores {display: block}
+  .seleccionadores h5 {display:block}
+  .tabla2 {display:block}
+  .main-sidebar{display: none}
+}

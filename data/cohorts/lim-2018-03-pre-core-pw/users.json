@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [{
   "id": "00hJv4mzvqM3D9kBy3dfxoJyFV82",
   "signupCohort": "lim-2018-03-pre-core-pw",
@@ -5323,6 +5324,8 @@
   "role": "student"
 }]
 =======
+=======
+>>>>>>> upstream/master
 [
   {
     "id": "00hJv4mzvqM3D9kBy3dfxoJyFV82",
@@ -11381,5 +11384,9 @@
     "timezone": "America/Lima",
     "role": "student"
   }
+<<<<<<< HEAD
+]
+>>>>>>> upstream/master
+=======
 ]
 >>>>>>> upstream/master
