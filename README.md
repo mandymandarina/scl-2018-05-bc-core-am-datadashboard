@@ -17,15 +17,17 @@ Para la parte visual se utilizo un programa "Balsamiq" para realizar el sketch d
 
 Y el sketch seria lo siguiente:
 
-![replica](/src/img/Imagen subida desde iOS.jpg)
+![replica](/src/img/sketch-pc.jpg)
 
-![replica](/src/img/Imagen subida desde iOS (1).jpg)
+![replica](/src/img/sketch-pc.jpg)
 
-![replica](/src/img/Imagen subida desde iOS (2).jpg)
+![replica](/src/img/sketch-celular.jpg)
+
+![replica](/src/img/sketch-celular-1.jpg)
 
 El prototipo de alta fidelidad corresponderia a lo siguiente:
 
-![replica](/src/img/img web.png)
+![replica](/src/img/img-web.png)
 
 
 
