@@ -1,6 +1,6 @@
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function() {
-  scrollFunction();
+  scrollFunction()
+  ;
 };
 
 function scrollFunction() {
@@ -9,6 +9,12 @@ function scrollFunction() {
   } else {
     document.getElementById('myBtn').style.display = 'none';
   }
+}
+
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
 }
 
 
@@ -22,7 +28,7 @@ function drawChart() {
     ['Excercises', 8.94, '#b87333'],
     ['Reads', 10.49, 'silver'],
     ['Quizzes', 19.30, 'gold'],
-    
+
   ]);
 
   var view = new google.visualization.DataView(data);
