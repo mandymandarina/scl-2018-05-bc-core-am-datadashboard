@@ -9,16 +9,18 @@
   <title>Data Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
-  <link rel="icon" type="image/png" href="img/L.png" />
+  <link rel="icon" type="image/png" href="img/favicon.png" />
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <div class="row">
   <!-- primer row -->
   <div class="col-12 main-header">
     <div class="list-page">
-      <h1>Data Dashboard</h1>
-      <!--Logo-->
       <br>
-      <img src="../src/img/logo l.png" id='logo' alt="Logo">
+      <br>
+      <!--Logo-->
+      <h1>Data Dashboard</h1>
+      <img src="img/logo_original.png" id='logo' alt="Logo">
     </div>
   </div>
 </div>
@@ -48,14 +50,20 @@
               </div>
               <div class="text">
                 <div class="main-text">
-                  <h2>Valentina</h2>
+                  <h3>Valentina</h3>
+                </div>
+                <br>
+                <div class="main-text">
+                  <span>
+                    <strong>Training Manager</strong>
+                  </span>
                 </div>
                 <div class="main-text">
-                  <h3>Training Manager</h3>
-                </div>
-                <div class="main-text">
+                  <br>
                   <span class="icon-map-marker"></span>
-                  <h4 class="main-text">Chile</h4>
+                  <span class="main-text">
+                      <i class="material-icons">place</i> <strong>Chile</strong>
+                  </span>
                 </div>
               </div>
             </div>
@@ -65,15 +73,15 @@
       <br>
       <br>
       <div class="col-12 titulo">
-        <h1 class="titulo-principal">PROGRESO DE ESTUDIANTES DE LABORATORIA</h1>
+        <h2 class="titulo-principal">PROGRESO DE ESTUDIANTES DE LABORATORIA</h2>
       </div>
       <br>
       <br>
       <br>
       <br>
-      
+
       <div class="col-3 seleccionadores">
-          
+
       </div>
       <div class="col-3 seleccionadores">
         <h3>Sede</h3>
@@ -84,6 +92,8 @@
                 <option value="zzzz.htm">México
                   <option value="aaaa.htm">Perú
         </select>
+        <br>
+        <br>
       </div>
       <div class="col-3 seleccionadores">
         <h3>Cohort</h3>
@@ -92,8 +102,9 @@
             <option value="xxxx.htm">AM
               <option value="yyyy.htm">PM
         </select>
+        <br>
+        <br>
       </div>
-    
       <div class="col-3 seleccionadores">
         <h3>Alumna(s)</h3>
         <select name="ad" onchange="salta(this.form)">
@@ -118,7 +129,7 @@
       <br>
       <br>
       <br>
-     
+
       <div style="overflow-x:auto;">
         <table>
           <tr>
@@ -160,7 +171,8 @@
         </table>
       </div>
       </div>
-
+     
+         
       <!--  <div class="row">
          tercer row 
         <div class="col-2"></div>
@@ -205,8 +217,15 @@
           
 
     </section>-->
+    
+    <!-- Boton subir -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     </section>
+    <!-- JS -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
     <script src="main.js"></script>
+  
+    
 </body>
-
 </html>
