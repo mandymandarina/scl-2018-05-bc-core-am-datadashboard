@@ -9,14 +9,12 @@ h1,h2 {
   margin-left: 15%;
 }
 
-
+/* Select */
 .seleccionadores {
   padding: 10%;
   margin-left: 20%;
   
 }
-
-
 
 .seleccionadores h5{
   padding: 2% 7%;
@@ -153,8 +151,10 @@ th {
   text-align: left;
   padding: 8px;
   font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  background-color: #4CAF50;
 }
 tr:nth-child(even){background-color: #f2f2f2}
+tr:hover {background-color: #ddd;}
 
 td {
   text-align: left;
@@ -175,6 +175,7 @@ td {
   .seleccionadores h5 {display:block}
   .tabla2 {display:block}
   .main-sidebar{display: none}
+  .graficos {display:block}
 }
 
 
@@ -205,5 +206,12 @@ td {
   height: 500px;
   padding-left: 30%;
   padding-top: 10%;
+  
+}
+
+#columnchart_values {
+  margin: 80%;
+  margin-top: 20%;
+  
   
 }
