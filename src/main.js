@@ -11,10 +11,17 @@ function scrollFunction() {
   }
 }
 
-
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
+}
+
+function mostrar_propiedades(objeto, nombreObjeto) {
+  var resultado = "";
+  for (var i in objeto) {
+     resultado += nombreObjeto + "." + i + " = " + objeto[i] + "\n";
+  }
+  return resultado;
 }
 
 
