@@ -1,5 +1,8 @@
+
 /*
 // Boton top
+
+
 window.onscroll = function() {
   scrollFunction()
   ;
@@ -18,12 +21,22 @@ function topFunction() {
 
 */
 
+
 // Llamando Selectores
 function getSelectValue() {
   let selectedValue = document.getElementById('list').value;
   
   console.log(selectedValue);
 }
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+// Graficos //
+
 
 
 /*
