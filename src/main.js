@@ -1,8 +1,12 @@
+
+/*
+// Boton top
+
+
 window.onscroll = function() {
   scrollFunction()
   ;
 };
-
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById('myBtn').style.display = 'block';
@@ -10,7 +14,20 @@ function scrollFunction() {
     document.getElementById('myBtn').style.display = 'none';
   }
 }
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
 
+*/
+
+
+// Llamando Selectores
+function getSelectValue() {
+  let selectedValue = document.getElementById('list').value;
+  
+  console.log(selectedValue);
+}
 
 function topFunction() {
   document.body.scrollTop = 0;
@@ -20,6 +37,10 @@ function topFunction() {
 
 // Graficos //
 
+
+
+/*
+// Graficos //
 google.charts.load('current', { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
@@ -43,11 +64,12 @@ function drawChart() {
 
   var options = {
     title: 'Cursos del Cohort',
-    width: 600,
-    height: 400,
+    width: 400,
+    height: 300,
     bar: { groupWidth: '85%' },
     legend: { position: 'none' },
   };
   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
   chart.draw(view, options);
 }
+*/
