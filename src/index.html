@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,8 +8,9 @@
   <title>Data Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
-  <link rel="icon" type="image/png" href="../src/img/favicon.png" />
+  <link rel="icon" type="image/png" href="../src/img/faviconlab.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
 </head>
 <div class="row">
   <!-- primer row -->
@@ -20,11 +20,10 @@
       <br>
       <!--Logo-->
       <h1>Data Dashboard</h1>
-      <img src="img/logo_original.png" id='logo' alt="Logo">
+      <img src="img/logo_original.png" id="logo" alt="Logo">
     </div>
   </div>
 </div>
-
 <ul class="topnav">
   <li>
     <a class="active" href="#home">Home</a>
@@ -36,10 +35,10 @@
     <a href="#about">Soft Skills</a>
   </li>
 </ul>
-
 <body>
   <section class="container">
     <div class="row">
+        
       <!-- tercer row -->
       <div class="col-2 vale">
         <aside class="main-sidebar">
@@ -80,47 +79,44 @@
       <br>
       <br>
       <br>
-
+      <br>
+      <br>
       <div class="col-3 seleccionadores">
-
       </div>
       <div class="col-3 seleccionadores">
         <h3>Sede</h3>
-        <select name="ad" onchange="salta(this.form)">
-          <option selected> ---
-            <option value="xxxx.htm">Brasil
-              <option value="yyyy.htm">Chile
-                <option value="zzzz.htm">México
-                  <option value="aaaa.htm">Perú
+        <select name="ad">
+          <option selected> ---</option>
+          <option value="xxxx.htm">Brasil</option>
+          <option value="yyyy.htm">Chile</option>
+          <option value="zzzz.htm">México</option>
+          <option value="lm">Perú</option>
         </select>
         <br>
         <br>
       </div>
       <div class="col-3 seleccionadores">
         <h3>Cohort</h3>
-        <select name="ad" onchange="salta(this.form)">
-          <option selected> ---
-            <option value="xxxx.htm">lim-2018-03-pre-core-pw
-              <option value="yyyy.htm">cdmx-2018-03-pre-core-pw
+        <select id="list" change="getSelectValue();">
+          <option selected> ---</option>
+          <option value="lm">lim-2018-03-pre-core-pw</option>
+          <option value="cdm">cdmx-2017-10-bc-core-pm</option>
         </select>
         <br>
         <br>
       </div>
       <div class="col-3 seleccionadores">
         <h3>Alumna(s)</h3>
-        <select name="ad" onchange="salta(this.form)">
-          <option selected> ---
-            <option value="xxxx.htm">texto 1
-              <option value="yyyy.htm">texto 2
-                <option value="zzzz.htm">texto 3
-        </select>
+        <i class="fas fa-search"></i>        
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+        
       </div>
       <div class="col-3 seleccionadores">
         <h3>Orden Progreso</h3>
-        <select name="ad" onchange="salta(this.form)">
-          <option selected> ---
-            <option value="xxxx.htm">Ascendente
-              <option value="yyyy.htm">Descendente
+        <select id="ad" change="getSelectValue();">
+          <option selected> ---</option>
+          <option value="xxxx.htm">Progreso</option>
+          <option value="yyyy.htm">Descendente</option>
         </select>
       </div>
     </div>
@@ -130,13 +126,12 @@
       <br>
       <br>
       <br>
-
       <div style="overflow-x:auto;">
-        <table>
+        <table id="myTable">
           <tr>
             <th>Nombre alumna(s)</th>
-            <th>Lecturas</th>
-            <th>% Lecturas</th>
+            <th id="read">Lectura</th>
+            <th>% Lectura</th>
             <th>Ejercicios</th>
             <th>% Ejercicios</th>
             <th>Quizzes</th>
@@ -144,98 +139,25 @@
             <th>% Total</th>
             <th>Points</th>
           </tr>
-          <tr>
-            <td>Nombre 1</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Nombre 2</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td>Nombre 3</td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
         </table>
       </div>
-      </div>
-
-
-      <!--  <div class="row">
-         tercer row 
-        <div class="col-2"></div>
-        <div class="col-2 tabla">Alumna</div>
-        <div class="col-2 tabla">Lecturas</div>
-        <div class="col-2 tabla">Ejercicios autocorregidos</div>
-        <div class="col-2 tabla">Quizzes</div>
-        <div class="col-2 tabla">% total</div>
-      </div>
-      <div class="row">
-         cuarto row 
-        <div class="col-2 tabla3"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-      </div> -->
-
-      <!--  
-        <div class="col-2 tabla">
-          <h4>Alumna</h4>
-
-        </div>
-        <div class="col-2 tabla">
-            <h4>Lecturas</h4>
-      </div>
-      <div class="col-2 tabla">
-          <h4>Ejercicio</h4>
-        </div>
-        <div class="col-2 tabla">
-            <h4>Quizzes</h4>
-            </div>
-            <div class="col-2 tabla">
-                <h4>Total %</h4>
-                </div>
-                </div>
     </section>
-    <section>
-        <div class="row">
-        <div class="col-2 contenido">
-          
-
-    </section>-->
-
-      <!-- Boton subir -->
-      <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
-    </section>
+    <div class="row">
+      <div class="col-2" graficos>
+        <div id="columnchart_values">
+        </div>
+      </div>
+    </div>
+    
+    <!-- Boton subir -->
+    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <!-- JS -->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
-    <script src="main.js"></script>
-
-
+  </section>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="main.js"></script>
+  <script src="data.js"></script>
+ 
+  
+ 
 </body>
-
 </html>
