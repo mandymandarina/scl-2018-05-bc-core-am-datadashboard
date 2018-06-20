@@ -1,11 +1,11 @@
 window.onload = () => {
   users();
   progress();
+  cohorts();
 };
 
 var newProgressJSON = null;
-var progressData = null;
-var coursesData = null;
+
 
 function users() {
   const cohort = document.getElementById('list');
@@ -20,7 +20,7 @@ function users() {
       users = data;
       renderUsers(data); // recibir info de los arreglos de objetos
     });
-
+    
   const renderUsers = data => { // funcion elemento del boton. cuando se aprete el boton
     // devuelva el nombre de cada una
     cohort.addEventListener('change', () => {
@@ -37,28 +37,62 @@ function progress() {
   const container2 = document.getElementById('myTable');
   const progressJSON =
     '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
+  var progressData = null;
   console.log(progressJSON);
+  
   fetch(progressJSON)
     .then(response => response.json())
     .then(data => {
       console.log(data);
       progressData = data;
       newProgressJSON = Object.entries(progressData);
-      renderProgress(data);
+      
+      renderProgress(data);     
     });
-
+  
   const renderProgress = data => {
     progreso.addEventListener('change', () => {
-      const progress = newProgressJSON.forEach(element => {
-        return container2.innerHTML += `<p>${element.percent}</p>`;
-       
+      const progressData = data.forEach(element => {
+        return container2.innerHTML += `<p>${element[0]}</p>`;
       });
     });
   };
 }
 
+function cohorts() {
+  const cursos = document.getElementById('ad');
+  const container3 = document.getElementById('myTable');
+  const cohortJSON =
+    '../data/cohorts.json';
+  var cohortData = null; 
+  
+  fetch(cohortJSON)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      cohortData = data;
+      renderCohort(data);     
+    });
+  
+  const renderCohort = data => {
+    cursos.addEventListener('change', () => {
+      const cohortData = data.forEach(element => {
+        return container3.innerHTML += `<p>${element}</p>`;
+      });
+    });
+  };
+}
 
+selectChange = (user, progress, cohorts) => {
+  let findStudents = '';
+  let orderDirection = '';
 
+  document.getElementById('list').addEventListener('change', () =>{
+    let studentsCohort = document.getElementById('list').value;
+    findStudents = newProgressJSON.find(item => item[0] === studentsCohort);
+    console.log(findStudents);
+  });
+};
 // Seleccion select
 function getSelectValue() {
   let selectedValue = document.getElementById('list').value;
