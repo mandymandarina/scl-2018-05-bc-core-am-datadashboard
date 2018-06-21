@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 const cohort = document.getElementById('list');
 const container = document.getElementById('table');
@@ -20,6 +21,10 @@ const renderUsers = data => { // funcion elemento del boton. cuando se aprete el
     });
     return render;
   });
+=======
+window.computeUsersStats = (users, progress, courses) => {
+
+>>>>>>> upstream/master
 };
 
 // Seleccion select
@@ -37,9 +42,18 @@ window.sortUsers = (users, orderBy, orderDirection) => {
 };
 
 window.filterUsers = (users, search) => {
-
+  var newUsers = [];
+  return users.filter((element) => {    
+    return element.name.toLowerCase().indexOf(search.toLowerCase()) >= 0;
+  });
+  return newUsers;
 };
 
 window.processCohortData = (options) => {
 
+<<<<<<< HEAD
 };
+=======
+};
+
+>>>>>>> upstream/master

@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +8,7 @@
   <title>Data Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
-
   <link rel="icon" type="image/png" href="../src/img/faviconlab.png" />
-
-  <link rel="icon" type="image/png" href="../src/img/favicon.png" />
-
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   
 </head>
@@ -29,7 +24,6 @@
     </div>
   </div>
 </div>
-
 <ul class="topnav">
   <li>
     <a class="active" href="#home">Home</a>
@@ -44,6 +38,7 @@
 <body>
   <section class="container">
     <div class="row">
+        
       <!-- tercer row -->
       <div class="col-2 vale">
         <aside class="main-sidebar">
@@ -112,6 +107,7 @@
       </div>
       <div class="col-3 seleccionadores">
         <h3>Alumna(s)</h3>
+<<<<<<< HEAD
         <select name="ad" onchange="salta(this.form)">
           <option selected> ---</option>
           <option value="xxxx.htm">texto 1</option>
@@ -124,6 +120,17 @@
         <select name="ad" onchange="salta(this.form)">
           <option selected> ---</option>
           <option value="xxxx.htm">Ascendente</option>
+=======
+        <i class="fas fa-search"></i>        
+        <input type="text" id="myInput" onkeyup="filterStudents()" placeholder="Search for names.." title="Type in a name">
+        
+      </div>
+      <div class="col-3 seleccionadores">
+        <h3>Orden Progreso</h3>
+        <select id="ad" change="getSelectValue();">
+          <option selected> ---</option>
+          <option value="xxxx.htm">Progreso</option>
+>>>>>>> upstream/master
           <option value="yyyy.htm">Descendente</option>
         </select>
       </div>
@@ -135,16 +142,11 @@
       <br>
       <br>
       <div style="overflow-x:auto;">
-        <table id="table">
+        <table id="myTable">
           <tr>
             <th>Nombre alumna(s)</th>
-
             <th>Lectura</th>
             <th>% Lectura</th>
-
-            <th>Lecturas</th>
-            <th>% Lecturas</th>
-
             <th>Ejercicios</th>
             <th>% Ejercicios</th>
             <th>Quizzes</th>
@@ -160,8 +162,8 @@
         <div id="columnchart_values">
         </div>
       </div>
-
     </div>
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     
@@ -226,9 +228,12 @@
 >>>>>>> upstream/master
 
       <!-- Boton subir -->
+=======
+    
+    <!-- Boton subir -->
+>>>>>>> upstream/master
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <!-- JS -->
-
   </section>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="main.js"></script>
@@ -236,6 +241,7 @@
  
   
  
+<<<<<<< HEAD
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
@@ -243,6 +249,7 @@
 
 
 
+=======
+>>>>>>> upstream/master
 </body>
-
 </html>
