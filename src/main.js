@@ -5,29 +5,30 @@ window.onload = () => {
 };
 
 var newProgressJSON = null;
-
+var usersData = null;
+var progressData = null;
+var cohortData = null; 
 
 function users() {
   const cohort = document.getElementById('list');
   const container = document.getElementById('myTable');
   const usersJSON =
     '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
-  var users = null;
+  
   fetch(usersJSON)
     .then(response => response.json())
     .then(data => {
-      console.log(data); // llame a la data
-      users = data;
-      renderUsers(data); // recibir info de los arreglos de objetos
+      console.log(data); 
+      usersData = data;
+      renderUsers(data); 
     });
     
-  const renderUsers = data => { // funcion elemento del boton. cuando se aprete el boton
-    // devuelva el nombre de cada una
+  const renderUsers = data => { 
     cohort.addEventListener('change', () => {
-      const users = data.forEach(element => { // guardar en una variable  recorre todo el for each inicio a fin//() cada elemento que va a recorrer
-        return container.innerHTML += `<td>${element.name}</td>`; // concatena += uno tras otro los nombres
+      const usersData = data.forEach(element => { 
+        return container.innerHTML += `<td>${element.name}</td>`;
       });
-      return users;
+      return usersData;
     });
   };
 }
@@ -37,7 +38,7 @@ function progress() {
   const container2 = document.getElementById('myTable');
   const progressJSON =
     '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
-  var progressData = null;
+  
   console.log(progressJSON);
   
   fetch(progressJSON)
@@ -46,14 +47,13 @@ function progress() {
       console.log(data);
       progressData = data;
       newProgressJSON = Object.entries(progressData);
-      
       renderProgress(data);     
     });
   
   const renderProgress = data => {
     progreso.addEventListener('change', () => {
       const progressData = data.forEach(element => {
-        return container2.innerHTML += `<p>${element[0]}</p>`;
+        return container2.innerHTML += `<p>${element}</p>`;
       });
     });
   };
@@ -64,7 +64,7 @@ function cohorts() {
   const container3 = document.getElementById('myTable');
   const cohortJSON =
     '../data/cohorts.json';
-  var cohortData = null; 
+  
   
   fetch(cohortJSON)
     .then(response => response.json())
@@ -104,7 +104,16 @@ function getSelectValue() {
   console.log(selectValue);
 };
 
+function filterStudents() {
+  const searchText = myInput.value;
+  const usersFiltered = window.filterUsers(usersData, searchText);
+  const table = document.getElementById('myTable');
+ 
+  document.getElementById('myTable').innerHTML = JSON.stringify(usersFiltered);
+  console.log('Filtered > ' + JSON.stringify(usersFiltered));
+}
 
+/*
 function myFunction() {
   var input, filter, table, tr, td, i;
   input = document.getElementById('myInput');
