@@ -25,6 +25,21 @@ h1,h2 {
   
 }
 
+<<<<<<< HEAD
+=======
+.contenido {
+  border: 1px solid black;
+}
+
+/*
+.tabla2 {
+  width: 100%;
+  border: 1px solid black;
+  background-color:rgb(250, 250, 250);
+  
+}*/
+
+>>>>>>> upstream/master
 body {margin: 0;}
 
 #logo {
@@ -68,8 +83,13 @@ ul.topnav li a {
     text-decoration: none;
     font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
 }
+<<<<<<< HEAD
 ul.topnav li a:hover:not(.active) {background-color: #56F89A}
 ul.topnav li a.active {background-color: #FF009E;}
+=======
+ul.topnav li a:hover:not(.active) {background-color: #FF009E}
+ul.topnav li a.active {background-color:#00a65a;}
+>>>>>>> upstream/master
 ul.topnav li.right {float: right;}
 
 @media screen and (max-width: 600px){
@@ -127,7 +147,7 @@ ul.topnav li.right {float: right;}
  table {
   border-collapse: collapse;
   border-spacing: 0;
-  width: 75%;
+  width: 100%;
   border: 1px solid #ddd;
   padding-left: 60%;
   margin-left: 20%;
@@ -196,6 +216,7 @@ td {
   
 }
 
+
 #columnchart_values {
   margin: 80%;
   margin-top: 20%;
@@ -203,3 +224,11 @@ td {
   
 }
 
+<<<<<<< HEAD
+=======
+th {
+  background-color: #00a65a;
+  color: black;
+}
+
+>>>>>>> upstream/master

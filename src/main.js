@@ -1,6 +1,13 @@
 
+<<<<<<< HEAD
 
 // Top
+=======
+/*
+// Boton top
+
+
+>>>>>>> upstream/master
 window.onscroll = function() {
   scrollFunction()
   ;
@@ -17,6 +24,28 @@ function topFunction() {
   document.documentElement.scrollTop = 0;
 }
 
+<<<<<<< HEAD
+=======
+*/
+
+
+// Llamando Selectores
+function getSelectValue() {
+  let selectedValue = document.getElementById('list').value;
+  
+  console.log(selectedValue);
+}
+
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+// Graficos //
+
+
+>>>>>>> upstream/master
 
 // Graficos 
 google.charts.load('current', { packages: ['corechart'] });
