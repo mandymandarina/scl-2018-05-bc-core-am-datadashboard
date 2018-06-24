@@ -2,13 +2,13 @@ window.onload = () => {
   users();
   progress();
   courses();
-  scrollFunction();  
+  scrollFunction();
 };
 
 var newProgressJSON = null;
 var usersData = null;
 var progressData = null;
-var cohortData = null; 
+var cohortData = null;
 
 function progress() {
   const progreso = document.getElementById('ad');
@@ -22,9 +22,9 @@ function progress() {
       console.log(data);
       progressData = data;
       newProgressJSON = Object.entries(progressData);
-      renderProgress(data);     
+      renderProgress(data);
     });
-  
+
   const renderProgress = data => {
     progreso.addEventListener('change', renderProgressTable.bind(this, data));
   };
@@ -40,9 +40,9 @@ function courses() {
     .then(data => {
       console.log(data);
       cohortData = data;
-      renderCohort(data);     
+      renderCohort(data);
     });
-  
+
   const renderCohort = data => {
     cursos.addEventListener('change', () => {
       const cohortData = data.forEach(element => {
@@ -57,7 +57,7 @@ function renderUserTable(data) {
   const container = document.getElementById('myTable');
   container.innerHTML = '';
   const userStats = window.comp;
-  const usersData = data.forEach(element => { 
+  const usersData = data.forEach(element => {
     return container.innerHTML += '<tr>' +
       '<td>' + '<td>' + '</td>' +
       '<td>' + element.name + '</td>' +
@@ -78,12 +78,12 @@ function users() {
   fetch(usersJSON)
     .then(response => response.json())
     .then(data => {
-      console.log(data); 
+      console.log(data);
       usersData = data;
-      renderUsers(data); 
+      renderUsers(data);
     });
-    
-  const renderUsers = data => { 
+
+  const renderUsers = data => {
     cohort.addEventListener('change', renderUserTable.bind(this, data));
   };
 }
@@ -91,7 +91,7 @@ function users() {
 
 function renderProgressTable(data) {
   const container = document.getElementById('myTable');
-  container.innerHTML = ''; 
+  container.innerHTML = '';
   return container.innerHTML += renderProgress;
 }
 
@@ -105,7 +105,7 @@ selectChange = (user, progress, cohorts) => {
   let findStudents = '';
   let orderDirection = '';
 
-  document.getElementById('list').addEventListener('change', () =>{
+  document.getElementById('list').addEventListener('change', () => {
     let studentsCohort = document.getElementById('list').value;
     findStudents = newProgressJSON.find(item => item[0] === studentsCohort);
     console.log(findStudents);
@@ -126,11 +126,11 @@ function filterStudents() {
   const searchText = myInput.value;
   const usersFiltered = window.filterUsers(usersData, searchText);
   const table = document.getElementById('myTable');
- 
+
   renderUserTable(usersFiltered);
 }
 
-  
+
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById('myBtn').style.display = 'block';
@@ -146,11 +146,11 @@ function topFunction() {
 
 // Graficos //
 
-google.charts.load('current', {packages: ['corechart']});
+google.charts.load('current', { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
-    ['String', 'Porcentaje', { role: 'style' } ],
+    ['String', 'Porcentaje', { role: 'style' }],
     ['Completitud Total', 74, '#FFE521'],
     ['Completitud Ejercicios', 59, '#56F89A'],
     ['Completitud Lecturas', 74, '#47EADA'],
@@ -159,17 +159,19 @@ function drawChart() {
 
   var view = new google.visualization.DataView(data);
   view.setColumns([0, 1,
-    { calc: 'stringify',
+    {
+      calc: 'stringify',
       sourceColumn: 1,
       type: 'string',
-      role: 'annotation' },
+      role: 'annotation'
+    },
     2]);
 
   var options = {
 
     width: 600,
     height: 400,
-    bar: {groupWidth: '95%'},
+    bar: { groupWidth: '95%' },
     legend: { position: 'none' },
   };
   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
