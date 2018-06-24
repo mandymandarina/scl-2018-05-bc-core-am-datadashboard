@@ -6,7 +6,6 @@ window.computeUsersStats = (users, progress, courses) => {
     for (j = 0; j < userProgress.length; j++)
       if (JSON.stringify(userProgress[j]) === '{}') {
         users[i] = {
-          ...users[i],            
           stats: {
             percent: 0,
             exercises: { percent: 0, },
@@ -29,7 +28,7 @@ window.sortUsers = (users, orderBy, orderDirection) => {
 
 window.filterUsers = (users, search) => {
   var newUsers = [];
-  return users.filter((element) => {    
+  return users.filter((element) => {
     return element.name.toLowerCase().indexOf(search.toLowerCase()) >= 0;
   });
   return newUsers;

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +11,7 @@
   <link rel="stylesheet" href="grid.css">
   <link rel="icon" type="image/png" href="../src/img/faviconlab.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
+
 </head>
 <div class="row">
   <!-- primer row -->
@@ -35,10 +36,11 @@
     <a href="#about">Soft Skills</a>
   </li>
 </ul>
+
 <body>
   <section class="container">
     <div class="row">
-        
+
       <!-- tercer row -->
       <div class="col-2 vale">
         <aside class="main-sidebar">
@@ -107,15 +109,15 @@
       </div>
       <div class="col-3 seleccionadores">
         <h3>Alumna(s)</h3>
-        <i class="fas fa-search"></i>        
+        <i class="fas fa-search"></i>
         <input type="text" id="myInput" onkeyup="filterStudents()" placeholder="Search for names.." title="Type in a name">
-        
+
       </div>
       <div class="col-3 seleccionadores">
         <h3>Orden Progreso</h3>
         <select id="ad" change="getSelectValue();">
           <option selected> ---</option>
-          <option value="xxxx.htm">Progreso</option>
+          <option value="xxxx.htm">Ascendente</option>
           <option value="yyyy.htm">Descendente</option>
         </select>
       </div>
@@ -128,17 +130,16 @@
       <br>
       <div class="container-fluid">
         <div class="row">
-      <div style="overflow-x:auto;">
-        <table id="myTable">
-          <tr>
+          <div style="overflow-x:auto;">
+            <img src="img/titulos tabla.png" class="titulos_table" alt="titulos_tabla">
+            <table id="myTable">
+              <tr>
 
-            <img src="img/fila nombres , lecturas,etc.png" id="imgg">
-           
-          </tr>
-        </table>
+              </tr>
+            </table>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
     </section>
     <div class="row">
       <div class="col-2" graficos>
@@ -146,7 +147,7 @@
         </div>
       </div>
     </div>
-    
+
     <!-- Boton subir -->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <!-- JS -->
@@ -154,8 +155,9 @@
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="main.js"></script>
   <script src="data.js"></script>
- 
-  
- 
+
+
+
 </body>
+
 </html>

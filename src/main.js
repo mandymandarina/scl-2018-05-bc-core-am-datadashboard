@@ -2,8 +2,7 @@ window.onload = () => {
   users();
   progress();
   courses();
-  scrollFunction();
-  renderProgressTable();
+  scrollFunction();  
 };
 
 var newProgressJSON = null;
@@ -62,11 +61,11 @@ function renderUserTable(data) {
     return container.innerHTML += '<tr>' +
       '<td>' + '<td>' + '</td>' +
       '<td>' + element.name + '</td>' +
-      '<td>' + '<td>' + '</td>' +
-      '<td>' + +'</td>' +
-      '<td>' + +'</td>' +
-      '<td>' + +'</td>' +
-      '<td>' + +'</td>' +
+      '<td>' + + '<td>' + '</td>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '<tb>' +
       '</tr>';
   });
 }
@@ -90,10 +89,10 @@ function users() {
 }
 
 
-function renderProgressTable() {
+function renderProgressTable(data) {
   const container = document.getElementById('myTable');
   container.innerHTML = ''; 
-  return container.innerHTML += users[i];
+  return container.innerHTML += renderProgress;
 }
 
 function start() {
@@ -101,20 +100,6 @@ function start() {
     processed = computeUsersStats(users, progress, courses);
   }
 }
-/*
-  const progressData = data.forEach(element => {
-    let userProgress = ProgressData[usersData.id];
-    let percent = '';
-    if (userProgress.intro) {
-      percent = userProgress.intro.percent;
-      return container.innerHTML += percent;
-    }
-    console.log(percent);
-    // container2.innerHTML += `<td>${element}</td>`;
-  });
-}
-*/
-
 
 selectChange = (user, progress, cohorts) => {
   let findStudents = '';
@@ -157,10 +142,6 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-// function getSelectValue() {
-// let selectedValue = document.getElementById('list').value;
-// const container = document.createElement('tabla');
-// console.log(selectedValue);};
 
 
 // Graficos //
