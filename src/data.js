@@ -1,5 +1,25 @@
 window.computeUsersStats = (users, progress, courses) => {
+  for (i = 0; i < users.length; i++) {
+    let userId = users[i].id;
+    let userProgress = progress[userId];
+    userProgressJSON = Object.entries(userProgress);
+    for (j = 0; j < userProgress.length; j++)
+      if (JSON.stringify(userProgress[j]) === '{}') {
+        users[i] = {
+          ...users[i],            
+          stats: {
+            percent: 0,
+            exercises: { percent: 0, },
+            reads: { percent: 0, },
+            quizzes: {
+              percent: 0,
+              scoreAvg: 0,
 
+            }
+          }
+        };
+      }
+  }
 };
 
 
