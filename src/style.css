@@ -192,4 +192,10 @@ td {
   width:75%;
   position: relative;
 }
+#columnchart_values {
+  width: 900px;
+  height: 500px;
+  padding-left: 18em;
+  padding-top: 50%;
+}
 

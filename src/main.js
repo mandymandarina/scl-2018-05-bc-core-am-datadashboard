@@ -145,37 +145,34 @@ function topFunction() {
 
 
 // Graficos //
-/*
-google.charts.load('current', { packages: ['corechart'] });
+
+google.charts.load('current', {packages: ['corechart']});
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
-    ['Sprint', 'Porcentaje', { role: 'style' }],
-    ['Excercises', 8.94, '#b87333'],
-    ['Reads', 10.49, 'silver'],
-    ['Quizzes', 19.30, 'gold'],
-
+    ['String', 'Porcentaje', { role: 'style' } ],
+    ['Completitud Total', 74, '#FFE521'],
+    ['Completitud Ejercicios', 59, '#56F89A'],
+    ['Completitud Lecturas', 74, '#47EADA'],
+    ['Completitud Quizzes', 68, 'color: #FF009E;']
   ]);
 
   var view = new google.visualization.DataView(data);
   view.setColumns([0, 1,
-    {
-      calc: 'stringify',
+    { calc: 'stringify',
       sourceColumn: 1,
       type: 'string',
-      role: 'annotation'
-    },
+      role: 'annotation' },
     2]);
 
   var options = {
-    title: 'Cursos del Cohort',
-    width: 400,
-    height: 300,
-    bar: { groupWidth: '85%' },
+
+    width: 600,
+    height: 400,
+    bar: {groupWidth: '95%'},
     legend: { position: 'none' },
   };
   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
   chart.draw(view, options);
 }
 
-*/
