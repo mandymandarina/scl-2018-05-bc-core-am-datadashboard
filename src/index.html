@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
   <title>Data Dashboard</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="grid.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt"
+    crossorigin="anonymous">
   <link rel="icon" type="image/png" href="../src/img/faviconlab.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  
+
 </head>
 <div class="row">
   <!-- primer row -->
@@ -18,7 +21,7 @@
     <div class="list-page">
       <br>
       <br>
-      <!--Logo-->
+      <!--Logo y título-->
       <h1>Data Dashboard</h1>
       <img src="img/logo_original.png" id="logo" alt="Logo">
     </div>
@@ -35,11 +38,12 @@
     <a href="#about">Soft Skills</a>
   </li>
 </ul>
+
 <body>
   <section class="container">
     <div class="row">
-        
-      <!-- tercer row -->
+
+      <!--Info Vale -->
       <div class="col-2 vale">
         <aside class="main-sidebar">
           <section class="sidebar">
@@ -72,6 +76,7 @@
       </div>
       <br>
       <br>
+      <!-- Titulo principal -->
       <div class="col-12 titulo">
         <h2 class="titulo-principal">PROGRESO DE ESTUDIANTES DE LABORATORIA</h2>
       </div>
@@ -81,16 +86,14 @@
       <br>
       <br>
       <br>
+      <!-- Seleccionadores -->
       <div class="col-3 seleccionadores">
       </div>
       <div class="col-3 seleccionadores">
-        <h3>Sede</h3>
-        <select name="ad">
+        <h3>Courses</h3>
+        <select id="courses">
           <option selected> ---</option>
-          <option value="xxxx.htm">Brasil</option>
-          <option value="yyyy.htm">Chile</option>
-          <option value="zzzz.htm">México</option>
-          <option value="lm">Perú</option>
+          <option value="js">Introducción a la programación(con JavaScript)</option>
         </select>
         <br>
         <br>
@@ -107,33 +110,20 @@
       </div>
       <div class="col-3 seleccionadores">
         <h3>Alumna(s)</h3>
-<<<<<<< HEAD
-        <select name="ad" onchange="salta(this.form)">
-          <option selected> ---</option>
-          <option value="xxxx.htm">texto 1</option>
-          <option value="yyyy.htm">texto 2</option>
-          <option value="zzzz.htm">texto 3</option>
-        </select>
-      </div>
-      <div class="col-3 seleccionadores">
-        <h3>Orden Progreso</h3>
-        <select name="ad" onchange="salta(this.form)">
-          <option selected> ---</option>
-          <option value="xxxx.htm">Ascendente</option>
-=======
-        <i class="fas fa-search"></i>        
+        <i class="fas fa-search"></i>
         <input type="text" id="myInput" onkeyup="filterStudents()" placeholder="Search for names.." title="Type in a name">
-        
+
       </div>
       <div class="col-3 seleccionadores">
         <h3>Orden Progreso</h3>
         <select id="ad" change="getSelectValue();">
           <option selected> ---</option>
-          <option value="xxxx.htm">Progreso</option>
->>>>>>> upstream/master
+          <i class="far fa-address-book"></i>
+          <option value="xxxx.htm">Ascendente</option>
           <option value="yyyy.htm">Descendente</option>
         </select>
       </div>
+      <!-- Fin seleccionadores -->
     </div>
     <br>
     <br>
@@ -141,115 +131,42 @@
       <br>
       <br>
       <br>
-      <div style="overflow-x:auto;">
-        <table id="myTable">
-          <tr>
-            <th>Nombre alumna(s)</th>
-            <th>Lectura</th>
-            <th>% Lectura</th>
-            <th>Ejercicios</th>
-            <th>% Ejercicios</th>
-            <th>Quizzes</th>
-            <th>% Quizzes</th>
-            <th>% Total</th>
-            <th>Points</th>
-          </tr>
-        </table>
+      <!-- Tabla estudiantes y estadísticas -->
+      <div class="container-fluid">
+        <div class="row">
+          <div style="overflow-x:auto;">
+            <table id="myTable">
+              <img src="img/titulos tabla.png" class="titulos_table" alt="titulos_tabla">
+                </table>
+          </div>
+        </div>
       </div>
     </section>
+    <!-- estudiantes stats-->
+    <div class="row">
+        <div class="col-1">
+          <div class="row" id="students"></div>
+        </div>
+      </div>
+    <!-- Graficos -->
     <div class="row">
       <div class="col-2" graficos>
         <div id="columnchart_values">
         </div>
       </div>
     </div>
-<<<<<<< HEAD
-<<<<<<< HEAD
-    
-    
-=======
-    <span id="res"></span>
-    <!--  <div class="row">
 
-
-
-      <!--  <div class="row">
-
-         tercer row 
-        <div class="col-2"></div>
-        <div class="col-2 tabla">Alumna</div>
-        <div class="col-2 tabla">Lecturas</div>
-        <div class="col-2 tabla">Ejercicios autocorregidos</div>
-        <div class="col-2 tabla">Quizzes</div>
-        <div class="col-2 tabla">% total</div>
-      </div>
-      <div class="row">
-         cuarto row 
-        <div class="col-2 tabla3"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-        <div class="col-2 tabla2"></div>
-      </div> -->
-
-    <!--  
-        <div class="col-2 tabla">
-          <h4>Alumna</h4>
-
-        </div>
-        <div class="col-2 tabla">
-            <h4>Lecturas</h4>
-      </div>
-      <div class="col-2 tabla">
-          <h4>Ejercicio</h4>
-        </div>
-        <div class="col-2 tabla">
-            <h4>Quizzes</h4>
-            </div>
-            <div class="col-2 tabla">
-                <h4>Total %</h4>
-                </div>
-                </div>
-    </section>
-    <section>
-        <div class="row">
-        <div class="col-2 contenido">
-          
-
-
-
-    </section>-->
-
-      <!-- Boton subir -->
-    <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>  
-
-    </section>
->>>>>>> upstream/master
-
-      <!-- Boton subir -->
-=======
-    
     <!-- Boton subir -->
->>>>>>> upstream/master
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <!-- JS -->
   </section>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="main.js"></script>
   <script src="data.js"></script>
- 
   
- 
-<<<<<<< HEAD
-
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <div id="columnchart_values" style="width: 900px; height: 300px;"></div>
-    <script src="main.js"></script>
 
 
 
-=======
->>>>>>> upstream/master
 </body>
+
 </html>
