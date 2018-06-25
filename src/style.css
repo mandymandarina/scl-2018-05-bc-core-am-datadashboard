@@ -1,193 +1,200 @@
 body {
-  background-color: rgb(250, 250, 250);
-}
-h1,h2 {
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-  text-transform: uppercase;
-  text-align: center;
-  margin-left: 15%;
-}
-
-/* Select */
-.seleccionadores {
-  margin-left: 20%;
-  
-}
-.tabla {
-  width: 100%;
-  border: 1px solid black;
-  background-color:rgb(250, 250, 250);
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-  font-size: 14px;
-  text-align: center;
-  
-}
-body {margin: 0;}
-#logo {
-  width: 8%;
-  height: 8%;
-  padding: 1%;
-}
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-}
-.main-header {
-  background-color:#FFE521;
-  position: relative;
-  max-height: 103px;
-  z-index: 1030;
-  
-}
-* {
-  box-sizing: border-box;
-}
-/*menu*/
-body {margin: 0;}
-ul.topnav {
+    background-color: rgb(250, 250, 250);
+  }
+  h1,h2 {
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+    text-transform: uppercase;
+    text-align: center;
+    margin-left: 15%;
+  }
+  /* Select */
+  .seleccionadores {
+    margin-left: 20%;
+    
+  }
+  .myTable {
+    width: 200%;
+    border: 1px solid black;
+    background-color:rgb(250, 250, 250);
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    text-align: center;
+    
+  }
+  body {margin: 0;}
+  #logo {
+    width: 8%;
+    height: 8%;
+    padding: 1%;
+  }
+  ul {
     list-style-type: none;
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:  #2b2b2b;
-}
-ul.topnav li {float: left;}
-ul.topnav li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-}
-ul.topnav li a:hover:not(.active) {background-color: #56F89A}
-ul.topnav li a.active {background-color: #FF009E;}
-ul.topnav li.right {float: right;}
-@media screen and (max-width: 600px){
-    ul.topnav li.right, 
-    ul.topnav li {float: none;}
-}
-/*Sidebar*/
-.main-sidebar {
-  background-color: #2b2b2b;
-  position: absolute;
-  left: 0;
-  padding-top: 50px;
-  height: 1650px;
-  width: 230px;
-}
-.sidebar {
-  height: auto;
-  padding-bottom: 10px;
-}
-.text {
-  text-align: center;
-}
-.main-image img {
-  position: relative;
-  left: 35px;
-}
-.main-text h2 {
-  color: white;
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-}
-.main-text h3, span {
-  color: #FFE521;
-  position: relative;
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-}
-.main-text span, h4 {
-  display: inline;
-  margin: 0;
-}
-.main-text span {
-  margin-right: 5px;
-}
-#logo {
-  height: 20%;
-  width: 20%;
-  margin-top:-5%;
-  margin-right: 81%;
-}
-/* tabla */
- table {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 75%;
-  border: 1px solid #ddd;
-  padding-left: 60%;
-  margin-left: 20%;
   }
-  
-th {
-  text-align: left;
-  padding: 8px;
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-  background-color: #56F89A;
-}
-tr:nth-child(even){background-color: #f2f2f2}
-tr:hover {background-color: rgb(211, 190, 190);}
-td {
-  text-align: left;
-  padding: 8px;
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-  font-size: 15px;
-}
-.list-page h1 {
-  text-align: right;
-  font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-  font-size: 30px;
+  .main-header {
+    background-color:#FFE521;
+    position: relative;
+    max-height: 103px;
+    z-index: 1030;
     
-}
-@media screen and (min-width: 50px) and (max-width: 768px) {
-  .seleccionadores {display: block}
-  .seleccionadores h5 {display:block}
-  .tabla2 {display:block}
-  .main-sidebar{display: none}
-  .graficos {display:block}
-}
-/* Boton Subir */
-#myBtn {
-  display: none;
-  position: fixed;
-  bottom: 10px;
-  right: 30px;
-  z-index: 99;
-  font-size: 18px;
-  border: none;
-  outline: none;
-  background-color:#56F89A;
-  color: white;
-  cursor: pointer;
-  padding: 15px;
-  border-radius: 4px;
-}
-#myBtn:hover {
-  background-color: #555;
-}
-#columnchart_values {
-  width: 900px;
-  height: 500px;
-  padding-left: 30%;
-  padding-top: 10%;
-  
-}
-#columnchart_values {
-  margin: 80%;
-  margin-top: 20%;  
-}
-#myInput {
- 
-  background-position: 10px 10px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 3px 8px 3px 13px;
-  border: 1px solid  rgba(49, 48, 48, 0.295);
-  margin-bottom: 12px;
-}
-.titulos_table{
-  margin-left: 230px;
-}
+  }
+  * {
+    box-sizing: border-box;
+  }
+  /*menu*/
+  body {margin: 0;}
+  ul.topnav {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color:  #2b2b2b;
+  }
+  ul.topnav li {float: left;}
+  ul.topnav li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  }
+  ul.topnav li a:hover:not(.active) {background-color: #56F89A}
+  ul.topnav li a.active {background-color: #FF009E;}
+  ul.topnav li.right {float: right;}
+  @media screen and (max-width: 600px){
+      ul.topnav li.right, 
+      ul.topnav li {float: none;}
+  }
+  /*Sidebar*/
+  .main-sidebar {
+    background-color: #2b2b2b;
+    position: absolute;
+    left: 0;
+    padding-top: 50px;
+    height: 1650px;
+    width: 230px;
+  }
+  .sidebar {
+    height: auto;
+    padding-bottom: 10px;
+  }
+  .text {
+    text-align: center;
+  }
+  .main-image img {
+    position: relative;
+    left: 35px;
+  }
+  .main-text h2 {
+    color: white;
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  }
+  .main-text h3, span {
+    color: #FFE521;
+    position: relative;
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+  }
+  .main-text span, h4 {
+    display: inline;
+    margin: 0;
+  }
+  .main-text span {
+    margin-right: 5px;
+  }
+  #logo {
+    height: 20%;
+    width: 20%;
+    margin-top:-5%;
+    margin-right: 81%;
+  }
+  /* tabla */
+   table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 75%;
+    border: 1px solid #ddd;
+    padding-left: 60%;
+    margin-left: 20%;
+    }
+    
+  th {
+    text-align: left;
+    padding: 8px;
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+    background-color: #56F89A;
+  }
+  tr:nth-child(even){background-color: #f2f2f2}
+  tr:hover {background-color: rgb(211, 190, 190);}
+  td {
+    text-align: left;
+    padding: 8px;
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+    font-size: 15px;
+  }
+  .list-page h1 {
+    text-align: right;
+    font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
+    font-size: 30px;
+      
+  }
+  @media screen and (min-width: 50px) and (max-width: 768px) {
+    .seleccionadores {display: block}
+    .seleccionadores h5 {display:block}
+    .tabla2 {display:block}
+    .main-sidebar{display: none}
+    .graficos {display:block}
+  }
+  /* Boton Subir */
+  #myBtn {
+    display: none;
+    position: fixed;
+    bottom: 10px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color:#56F89A;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+  #myBtn:hover {
+    background-color: #555;
+  }
+  #columnchart_values {
+    width: 900px;
+    height: 500px;
+    padding-left: 30%;
+    padding-top: 10%;
+    
+  }
+  #columnchart_values {
+    margin: 80%;
+    margin-top: 20%;  
+  }
+  #myInput {
+   
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    width: 100%;
+    font-size: 16px;
+    padding: 3px 8px 3px 13px;
+    border: 1px solid  rgba(49, 48, 48, 0.295);
+    margin-bottom: 12px;
+  }
+  .titulos_table{
+    margin-left: 240px;
+    width:75%;
+    position: relative;
+  }
+  #columnchart_values {
+    width: 900px;
+    height: 500px;
+    padding-left: 18em;
+    padding-top: 50%;
+  }

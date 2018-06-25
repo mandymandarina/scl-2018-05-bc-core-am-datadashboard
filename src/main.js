@@ -1,20 +1,20 @@
-window.onload = () => { 
-// Funciones globales
-  users(); 
+window.onload = () => {
+  users();
   progress();
-  cohorts();
+  courses();
+  scrollFunction();
 };
 
 var newProgressJSON = null;
 var usersData = null;
 var progressData = null;
-var cohortData = null; 
+var cohortData = null;
 
 function progress() {
   const progreso = document.getElementById('ad');
   const container2 = document.getElementById('myTable');
   const progressJSON =
-      '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
+    '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
   console.log(progressJSON);
   fetch(progressJSON)
     .then(response => response.json())
@@ -22,64 +22,15 @@ function progress() {
       console.log(data);
       progressData = data;
       newProgressJSON = Object.entries(progressData);
-      renderProgress(data);     
+      renderProgress(data);
     });
-    
+
   const renderProgress = data => {
     progreso.addEventListener('change', renderProgressTable.bind(this, data));
   };
 }
 
-
-function renderUserTable(data) {
-  const container = document.getElementById('myTable');
-  container.innerHTML = ''; // Limpia los datos
-  const usersData = data.forEach(element => { 
-    return container.innerHTML += `<td>${element.name}</td>`;
-  });
-}
-
-// Usuarios
-function users() {
-  const cohort = document.getElementById('list');
-  const container = document.getElementById('myTable');
-  const usersJSON =
-    '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
-  fetch(usersJSON)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data); 
-      usersData = data;
-      renderUsers(data); 
-    });
-    
-  const renderUsers = data => { 
-    cohort.addEventListener('change', renderUserTable.bind(this, data));
-    
-
-    const renderseUsers = (renderUsers, renderProgress) => {
-      let rankingNumber = 0;
-      btn.addEventListener('click', () => {
-        const render = renderUsers.forEach(user => {
-          rankingNumber ++;
-          let userProgress = renderProgress[renderUsers.id]; // aqui se hace el match de users.json con progress.json
-          // Cuando se cumpla la condicion entragara el valor correspondiente, si la condicion es falsa, entregara 'sin   info'
-          let percent = 'info';
-          if (userProgress.intro) {
-            percent = userProgress.intro.percent;
-          }
-          return renderProgressTable.innerHTML += '<tr>';
-        });
-        return render;
-      });
-    };
-  };
-}
-
-// Progreso
-
-// Cohort users
-function cohorts() {
+function courses() {
   const cursos = document.getElementById('ad');
   const container3 = document.getElementById('myTable');
   const cohortJSON =
@@ -89,20 +40,78 @@ function cohorts() {
     .then(data => {
       console.log(data);
       cohortData = data;
-      renderCohort(data);     
+      renderCohort(data);
     });
-  
+
   const renderCohort = data => {
     cursos.addEventListener('change', () => {
       const cohortData = data.forEach(element => {
-        return container3.innerHTML += `<p>${element.cohort}</p>`;
+        return container3.innerHTML += `<p>${element}</p>`;
       });
     });
   };
 }
 
 
-// FuncionesSelect
+function renderUserTable(data) {
+  const container = document.getElementById('myTable');
+  container.innerHTML = '';
+  const userStats = window.comp;
+  const usersData = data.forEach(element => {
+    return container.innerHTML += '<tr>' +
+      '<td>' + '<td>' + '</td>' +
+      '<td>' + element.name + '</td>' +
+      '<td>' + + '<td>' + '</td>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '<tb>' +
+      '</tr>';
+  });
+}
+
+function users() {
+  const cohort = document.getElementById('list');
+  const container = document.getElementById('myTable');
+  const usersJSON =
+    '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
+  fetch(usersJSON)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      usersData = data;
+      renderUsers(data);
+    });
+
+  const renderUsers = data => {
+    cohort.addEventListener('change', renderUserTable.bind(this, data));
+  };
+}
+
+
+function renderProgressTable(data) {
+  const container = document.getElementById('myTable');
+  container.innerHTML = '';
+  return container.innerHTML += renderProgress;
+}
+
+function start() {
+  if (users && progress && courses) {
+    processed = computeUsersStats(users, progress, courses);
+  }
+}
+
+selectChange = (user, progress, cohorts) => {
+  let findStudents = '';
+  let orderDirection = '';
+
+  document.getElementById('list').addEventListener('change', () => {
+    let studentsCohort = document.getElementById('list').value;
+    findStudents = newProgressJSON.find(item => item[0] === studentsCohort);
+    console.log(findStudents);
+  });
+};
+// Seleccion select
 function getSelectValue() {
   let selectedValue = document.getElementById('list').value;
   console.log(selectValue);
@@ -117,32 +126,10 @@ function filterStudents() {
   const searchText = myInput.value;
   const usersFiltered = window.filterUsers(usersData, searchText);
   const table = document.getElementById('myTable');
- 
+
   renderUserTable(usersFiltered);
 }
-// termino select
 
-// Progreso 
-function renderProgressTable(renderData, progressData) {
-  let rankingNumber = 0;
-  const container = document.getElementById('myTable');
-  container.innerHTML = ''; 
-  const render = renderData.forEach(renderUsers => {
-    rankingNumber ++;
-    let userProgress = progressData[renderData.id];
-    let percent = 'Sin info';
-    if (userProgress.intro) {
-      percent = userProgress.intro.percent;
-    } return renderData;
-  });
-}
-
-
-// Scroll function (top)
-window.onscroll = function() {
-  scrollFunction()
-  ;
-};
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
@@ -151,8 +138,6 @@ function scrollFunction() {
     document.getElementById('myBtn').style.display = 'none';
   }
 }
-
-// Cuando el usuario hace clic en el botón, desplácese hasta la parte superior del documento
 function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
@@ -160,15 +145,16 @@ function topFunction() {
 
 
 // Graficos //
+
 google.charts.load('current', { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
   var data = google.visualization.arrayToDataTable([
-    ['Sprint', 'Porcentaje', { role: 'style' }],
-    ['Excercises', 8.94, '#b87333'],
-    ['Reads', 10.49, 'silver'],
-    ['Quizzes', 19.30, 'gold'],
-
+    ['String', 'Porcentaje', { role: 'style' }],
+    ['Completitud Total', 74, '#FFE521'],
+    ['Completitud Ejercicios', 59, '#56F89A'],
+    ['Completitud Lecturas', 74, '#47EADA'],
+    ['Completitud Quizzes', 68, 'color: #FF009E;']
   ]);
 
   var view = new google.visualization.DataView(data);
@@ -182,10 +168,10 @@ function drawChart() {
     2]);
 
   var options = {
-    title: 'Cursos del Cohort',
-    width: 400,
-    height: 300,
-    bar: { groupWidth: '85%' },
+
+    width: 600,
+    height: 400,
+    bar: { groupWidth: '95%' },
     legend: { position: 'none' },
   };
   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
