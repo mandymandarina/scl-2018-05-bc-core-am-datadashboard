@@ -61,11 +61,12 @@ function renderUserTable(data) {
     return container.innerHTML += '<tr>' +
       '<td>' + '<td>' + '</td>' +
       '<td>' + element.name + '</td>' +
-      '<td>' + + '<td>' + '</td>' +
-      '<td>' + +'</td>' + '<tb>' +
-      '<td>' + +'</td>' + '<tb>' +
-      '<td>' + +'</td>' + '<tb>' +
-      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '</td>' + 
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' +  '<td>' +
+    
       '</tr>';
   });
 }
