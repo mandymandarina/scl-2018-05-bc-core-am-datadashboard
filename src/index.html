@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="grid.css">
   <link rel="icon" type="image/png" href="img/faviconlab.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
 </head>
 <div class="row">
   <!-- primer row -->
@@ -80,6 +82,7 @@
       <br>
       <br>
       <div class="col-3 seleccionadores">
+        <div id="containerStudents"></div>
       </div>
       <div class="col-3 seleccionadores">
         <h3>Sede</h3>
@@ -105,16 +108,14 @@
       </div>
       <div class="col-3 seleccionadores">
         <h3>Alumna(s)</h3>
-        <i class="fas fa-search"></i>
         <input type="text" id="myInput" onkeyup="filterStudents()" placeholder="Search for names.." title="Type in a name">
       </div>
       <div class="col-3 seleccionadores">
         <h3>Orden Progreso</h3>
-        <select id="ad" change="getSelectValue();">
-          <option selected> ---</option>
-          <option value="xxxx.htm">Ascendente</option>
-          <option value="yyyy.htm">Descendente</option>
-        </select>
+        <div id="ordenProgreso"></div>
+        <i class="fas fa-arrow-up" id="asc"></i>
+        <i class="fas fa-arrow-down" id="desc"></i>
+        <button id="btnFilter" name="toggleSortonclick" onclick="onToggleSort()">ASC</button>
       </div>
     </div>
     <br>
