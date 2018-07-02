@@ -66,3 +66,10 @@ También quería obtener los datos de manera clara y simple.
 Con el mouse puede ir pintado a cada alumna en la tabla y visualizarlas mejor.
 * Además el buscador le permite poder filtrar a una alumna en particular y ver su proceso.
 * También añadimos un boton de top, ya que al ser bastante la información en una sola página, se le haría mas rápido el poder ir al inicio de la página sin tener que usar el scroll.
+
+### ¿Cuáles son los datos más relevantes que el usuario quiere ver en la interfaz y por qué?. ¿Cómo los descubriste?. ###
+
+De acuerdo a la entrevista realizada a Valentina; ella desea obtener los datos mas relevantes de las alumnas de un cohort. El grado de completitud general en quizzes, lecturas, ejercicios. Luego obtener de cada alumna los porcentajes, y su completitud de acuerdo a las unidades.
+Tambien lo mas importante, es que pueda ver a las alumnas en orden ascendente y descendente, para así poder visualizar quienes son las alumnas que mas han completado las unidades, y quienes no han completado nada.
+
+Leer entrevista [aquí](https://github.com/lyalatina/scl-2018-05-bc-core-am-datadashboard/blob/master/src/UX%20research/Entrevista%20Training%20Manager.pdf)
