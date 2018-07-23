@@ -5,16 +5,16 @@ window.onload = () => {
   scrollFunction();
 };
 
-var newProgressJSON = null;
-var usersData = null;
-var progressData = null;
-var cohortData = null;
+let newProgressJSON = null;
+let usersData = null;
+let progressData = null;
+let cohortData = null;
 
 function progress() {
   const progreso = document.getElementById('ad');
   const container2 = document.getElementById('myTable');
   const progressJSON =
-    '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
+    'data/cohorts/lim-2018-03-pre-core-pw/progress.json';
   console.log(progressJSON);
   fetch(progressJSON)
     .then(response => response.json())
@@ -34,7 +34,7 @@ function courses() {
   const cursos = document.getElementById('ad');
   const container3 = document.getElementById('myTable');
   const cohortJSON =
-    '../data/cohorts.json';
+    'data/cohorts.json';
   fetch(cohortJSON)
     .then(response => response.json())
     .then(data => {
@@ -74,7 +74,7 @@ function users() {
   const cohort = document.getElementById('list');
   const container = document.getElementById('myTable');
   const usersJSON =
-    '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
+    'data/cohorts/lim-2018-03-pre-core-pw/users.json';
   fetch(usersJSON)
     .then(response => response.json())
     .then(data => {
