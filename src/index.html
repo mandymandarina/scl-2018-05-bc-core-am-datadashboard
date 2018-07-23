@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
     crossorigin="anonymous">
 </head>
+<body>
+  
+
 <div class="row">
   <!-- primer row -->
   <div class="col-12 main-header">
@@ -115,7 +118,7 @@
         <div id="ordenProgreso"></div>
         <i class="fas fa-arrow-up" id="asc"></i>
         <i class="fas fa-arrow-down" id="desc"></i>
-        <button id="btnFilter" name="toggleSortonclick" onclick="onToggleSort()">ASC</button>
+        <button id="toggleSort" name="toggleSortonclick" onclick="onToggleSort()">ASC</button>
       </div>
     </div>
     <br>
@@ -128,13 +131,25 @@
         <div class="row">
           <div style="overflow-x:auto;">
             <img src="img/titulos tabla.png" class="titulos_table" alt="titulos_tabla">
-            <table id="myTable">
-              <tr>
-              </tr>
-            </table>
-          </div>
+            <table class="table my-3">
+                <thead>
+                    <tr>
+                      <th scope="col">Alumna(as)</th>
+                      <th scope="col">% Completitud Total</th>
+                      <th scope="col">% Ejercicios completados</th>
+                      <th scope="col">Punt.quizzes completados</th>
+                      <th scope="col">% Quizzes completador</th>
+                      <th scope="col">% Lecturas completadas</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table">
+                  </tbody>
+                </table>
         </div>
       </div>
+
+     
+         
     </section>
     <div class="row">
       <div class="col-2" graficos>
@@ -146,6 +161,7 @@
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <!-- JS -->
   </section>
+</body>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="main.js"></script>
   <script src="data.js"></script>

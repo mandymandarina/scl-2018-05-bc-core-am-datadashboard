@@ -26,7 +26,7 @@ Y el sketch seria lo siguiente:
 
 ![replica](/src/img/Imagen-subida-desde-iOS-(1).jpg)
 
-![replica](/src/img/Imagen-subida desde-iOS-(2).jpg)
+![replica](/src/img/Imagen-subida-desde-iOS-(2).jpg)
 
 
 El prototipo de alta fidelidad corresponderia a lo siguiente:
@@ -49,6 +49,7 @@ EL objetivo es poder tener los datos de estas alumnas, en cuanto a los cursos de
 De acuerdo a la entrevista realizada a Valentina; ella desea obtener los datos mas relevantes de las alumnas de un cohort. El grado de completitud general en quizzes, lecturas, ejercicios. Luego obtener de cada alumna los porcentajes, y su completitud de acuerdo a las unidades.
 Tambien lo mas importante, es que pueda ver a las alumnas en orden ascendente y descendente, para así poder visualizar quienes son las alumnas que mas han completado las unidades, y quienes no han completado nada.
 
+Leer entrevista [aquí](https://github.com/lyalatina/scl-2018-05-bc-core-am-datadashboard/blob/master/src/UX%20research/Entrevista%20Training%20Manager.pdf)
 
 ### ¿Cuándo revisa normalmente estos datos?. ###
 

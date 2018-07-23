@@ -122,13 +122,14 @@ body {
     border: 1px solid #ddd;
     padding-left: 60%;
     margin-left: 20%;
+    
     }
     
   th {
     text-align: left;
     padding: 8px;
     font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
-    background-color: #56F89A;
+    
   }
   tr:nth-child(even){background-color: #f2f2f2}
   tr:hover {background-color: rgb(211, 190, 190);}
@@ -137,6 +138,7 @@ body {
     padding: 8px;
     font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
     font-size: 15px;
+    
   }
   .list-page h1 {
     text-align: right;
@@ -204,7 +206,7 @@ body {
     padding-top: 50%;
   }
 
-  #btnFilter {
+  #toggleSort{
     background-color: #FFE521;
     border: 2px solid #fce306;
     padding: 10px;
@@ -213,13 +215,13 @@ body {
     border-radius: 5px;
 }
 
-#btnFilter:hover {
+#toggleSort:hover {
     background-color: #56F89A;
     border: 2px solid rgb(73, 223, 135);
     cursor: pointer;
 }
 
-#ordenProgreso {
+#toggleSort {
   margin: 5%;
 }
 #asc{
