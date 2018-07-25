@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Data Dashboard</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="grid.css">
   <link rel="icon" type="image/png" href="img/faviconlab.png" />
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+    crossorigin="anonymous">
+    <!-- Estilos -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+  
 </head>
+<body>
 <div class="row">
   <!-- primer row -->
   <div class="col-12 main-header">
     <div class="list-page">
-      <br>
-      <br>
       <!--Logo-->
       <h1>Data Dashboard</h1>
-      <img src="img/logo_original.png" id="logo" alt="Logo">      
+      <img src="img/logo_original.png" id="logo" alt="Logo">
     </div>
   </div>
 </div>
@@ -36,13 +37,10 @@
     <a href="#about">Soft Skills</a>
   </li>
 </ul>
-
-<body>
   <section class="container">
     <div class="row">
-
       <!-- tercer row -->
-      <div class="col-2 vale">
+      <div class="vale">
         <aside class="main-sidebar">
           <section class="sidebar">
             <div class="user-panel">
@@ -74,8 +72,8 @@
       </div>
       <br>
       <br>
-      <div class="col-12 titulo">
-        <h2 class="titulo-principal">PROGRESO DE ESTUDIANTES DE LABORATORIA</h2>
+      <div class="col-12 titulo mt-4">
+        <h2 class="titulo-principal">PROGRESO ESTUDIANTES DE LABORATORIA</h2>
       </div>
       <br>
       <br>
@@ -83,9 +81,11 @@
       <br>
       <br>
       <br>
-      <div class="col-3 seleccionadores">
+      <div class="seleccionadores">
+      
       </div>
-      <div class="col-3 seleccionadores">
+      <!--  
+      <div class="seleccionadores">
         <h3>Sede</h3>
         <select name="ad">
           <option selected> ---</option>
@@ -96,50 +96,56 @@
         </select>
         <br>
         <br>
-      </div>
-      <div class="col-3 seleccionadores">
-        <h3>Cohort</h3>
-        <select id="list" change="getSelectValue();">
-          <option selected> ---</option>
-          <option value="lm">lim-2018-03-pre-core-pw</option>
-          <option value="cdm">cdmx-2017-10-bc-core-pm</option>
-        </select>
-        <br>
-        <br>
-      </div>
-      <div class="col-3 seleccionadores">
-        <h3>Alumna(s)</h3>
-        <i class="fas fa-search"></i>
-        <input type="text" id="myInput" onkeyup="filterStudents()" placeholder="Search for names.." title="Type in a name">
-
-      </div>
-      <div class="col-3 seleccionadores">
-        <h3>Orden Progreso</h3>
-        <select id="ad" change="getSelectValue();">
-          <option selected> ---</option>
-          <option value="xxxx.htm">Ascendente</option>
-          <option value="yyyy.htm">Descendente</option>
-        </select>
-      </div>
-    </div>
-    <br>
-    <br>
-    <section>
-      <br>
-      <br>
-      <br>
-      <div class="container-fluid">
-        <div class="row">
-          <div style="overflow-x:auto;">
-            <img src="img/titulos tabla.png" class="titulos_table" alt="titulos_tabla">
-            <table id="myTable">
-              <tr>
-
-              </tr>
-            </table>
-          </div>
+        -->
+         <div class="container-flex mt-5">
+            <div class="row">
+            <div class="col-12">
+          <h5>Alumna(s)</h5>
+          <input type="text" id="myInput" onkeyup="filterData()" placeholder="Search for names.." title="Type in a name">
         </div>
       </div>
+    </div>
+      <div class="seleccionadores mt-5">
+        <h5>Cohort</h5>
+        <select id="list" onchange="getSelectValue();">
+          <option selected> ---</option>
+          <option value="lm">lim-2018-03-pre-core-pw</option>
+        </select>
+        <br>
+        <br>
+      </div>
+     
+      <div class="seleccionadores mt-5">
+        <h5>Orden Progreso</h5>
+        <div id="ordenProgreso"></div>
+        <i class="fas fa-arrow-up" id="asc"></i>
+        <i class="fas fa-arrow-down" id="desc"></i>
+        <button id="toggleSort" name="toggleSortonclick" onclick="onToggleSort()">ASC</button>
+      </div>
+    </div>
+    <section>  
+      <div class="container-fluid mt-5">
+        <div class="row">
+          <div style="overflow-x:auto;">
+            <!--  
+            <img src="img/titulos tabla.png" class="titulos_table" alt="titulos_tabla">-->
+            <table class="table-my-3 table-bordered dark">
+                <thead>
+                    <tr class="tableColor">
+                      <th scope="col">Alumna(as)</th>
+                      <th scope="col">% Completitud Total</th>
+                      <th scope="col">% Ejercicios completados</th>
+                      <th scope="col">Punt.quizzes completados</th>
+                      <th scope="col">% Quizzes completador</th>
+                      <th scope="col">% Lecturas completadas</th>
+                    </tr>
+                  </thead>
+                  <tbody id="table">
+                  </tbody>
+                </table>
+        </div>
+      </div>
+       </div>
     </section>
     <div class="row">
       <div class="col-2" graficos>
@@ -147,17 +153,16 @@
         </div>
       </div>
     </div>
-
     <!-- Boton subir -->
     <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
     <!-- JS -->
   </section>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
   <script src="main.js"></script>
   <script src="data.js"></script>
-
-
-
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <!-- BT -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/js/bootstrap.min.js" integrity="sha384-o+RDsa0aLu++PJvFqy8fFScvbHFLtbvScb8AjopnFD+iEQ7wo/CG0xlczd+2O/em" crossorigin="anonymous"></script>
 </body>
-
 </html>

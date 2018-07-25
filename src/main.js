@@ -1,20 +1,130 @@
+let users = null;
+let progress = null;
+let cohorts = null; 
+let usersStats = null;
+
+
+fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
+  .then(response => response.json())
+  .then(usersJSON => {
+    users = usersJSON;
+    users = usersJSON;
+    areWeFinishedYet();
+    
+  })
+  .catch(error => {
+    console.error('No pudimos obtener usuarios');
+  
+    console.error('ERROR > ' + error.stack); 
+  });
+
+ 
+
+fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json')
+  .then(response => response.json())
+  .then(progressJSON => {
+    progress = progressJSON;
+    areWeFinishedYet();
+  })
+  .catch(error => {
+    console.error('No pudimos obtener el progreso');
+    console.error('ERROR > ' + error.stack);
+  });
+
+fetch('../data/cohorts.json')
+  .then(response => response.json())
+  .then(cohortsJSON => {
+    cohorts = cohortsJSON;
+    areWeFinishedYet();
+  })
+  .catch(error => {
+    console.error('No pudimos obtener el listado de cohorts');
+    console.error('ERROR > ' + error.stack);
+  });
+
+function areWeFinishedYet() { 
+  if (users && progress && cohorts) {
+    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw'); 
+    const courses = Object.keys(cohort.coursesIndex); 
+    usersStats = window.computeUsersStats(users, progress, courses);
+  }
+}
+
+function onToggleSort() {
+  const direction = toggleSort.innerText;
+  if (direction == 'ASC') {
+    toggleSort.innerText = 'DESC';
+  } else {
+    toggleSort.innerText = 'ASC';
+  }
+  
+  const usersFiltered  = window.sortUsers(usersStats, 'percent', direction);
+  table.innerHTML = '';
+  for (let student of usersFiltered ) {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+      <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
+  }
+}
+
+function filterData() {
+  const search = myInput.value;
+  const usersFiltered = window.filterUsers(usersStats, search);
+  table.innerHTML = '';
+  usersFiltered.forEach(student => {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+    <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
+  });
+}
+// Función Select
+function getSelectValue() {
+  let selectedValue = document.getElementById('list').value;
+  console.log(selectedValue);
+  const search = myInput.value;
+  const usersFiltered = window.filterUsers(usersStats, search);
+  table.innerHTML = '';
+  usersFiltered.forEach(student => {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+    <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
+  });
+}
+
+/*
 window.onload = () => {
   users();
   progress();
   courses();
   scrollFunction();
 };
-
 let newProgressJSON = null;
 let usersData = null;
 let progressData = null;
 let cohortData = null;
-
 function progress() {
   const progreso = document.getElementById('ad');
   const container2 = document.getElementById('myTable');
   const progressJSON =
-    'data/cohorts/lim-2018-03-pre-core-pw/progress.json';
+    '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
   console.log(progressJSON);
   fetch(progressJSON)
     .then(response => response.json())
@@ -24,57 +134,32 @@ function progress() {
       newProgressJSON = Object.entries(progressData);
       renderProgress(data);
     });
-
   const renderProgress = data => {
     progreso.addEventListener('change', renderProgressTable.bind(this, data));
   };
 }
-
-function courses() {
-  const cursos = document.getElementById('ad');
-  const container3 = document.getElementById('myTable');
-  const cohortJSON =
-    'data/cohorts.json';
-  fetch(cohortJSON)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      cohortData = data;
-      renderCohort(data);
-    });
-
-  const renderCohort = data => {
-    cursos.addEventListener('change', () => {
-      const cohortData = data.forEach(element => {
-        return container3.innerHTML += `<p>${element}</p>`;
-      });
-    });
-  };
-}
-
-
 function renderUserTable(data) {
-  const container = document.getElementById('myTable');
+  const container = document.getElementById('table');
   container.innerHTML = '';
   const userStats = window.comp;
   const usersData = data.forEach(element => {
     return container.innerHTML += '<tr>' +
       '<td>' + '<td>' + '</td>' +
       '<td>' + element.name + '</td>' +
-      '<td>' + + '<td>' + '</td>' +
-      '<td>' + +'</td>' + '<tb>' +
-      '<td>' + +'</td>' + '<tb>' +
-      '<td>' + +'</td>' + '<tb>' +
-      '<td>' + +'</td>' + '<tb>' +
+      '<td>' + +'</td>' + '</td>' + 
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' +  '<td>' +
+    
       '</tr>';
   });
 }
-
 function users() {
   const cohort = document.getElementById('list');
-  const container = document.getElementById('myTable');
+  const container = document.getElementById('table');
   const usersJSON =
-    'data/cohorts/lim-2018-03-pre-core-pw/users.json';
+    '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
   fetch(usersJSON)
     .then(response => response.json())
     .then(data => {
@@ -82,55 +167,16 @@ function users() {
       usersData = data;
       renderUsers(data);
     });
-
   const renderUsers = data => {
     cohort.addEventListener('change', renderUserTable.bind(this, data));
   };
 }
-
-
-function renderProgressTable(data) {
-  const container = document.getElementById('myTable');
-  container.innerHTML = '';
-  return container.innerHTML += renderProgress;
-}
-
-function start() {
-  if (users && progress && courses) {
-    processed = computeUsersStats(users, progress, courses);
-  }
-}
-
-selectChange = (user, progress, cohorts) => {
-  let findStudents = '';
-  let orderDirection = '';
-
-  document.getElementById('list').addEventListener('change', () => {
-    let studentsCohort = document.getElementById('list').value;
-    findStudents = newProgressJSON.find(item => item[0] === studentsCohort);
-    console.log(findStudents);
-  });
-};
-// Seleccion select
-function getSelectValue() {
-  let selectedValue = document.getElementById('list').value;
-  console.log(selectValue);
-};
-
-function getSelectValue() {
-  let selectedValue = document.getElementById('ad').value;
-  console.log(selectValue);
-};
-
 function filterStudents() {
   const searchText = myInput.value;
   const usersFiltered = window.filterUsers(usersData, searchText);
-  const table = document.getElementById('myTable');
-
+  const table = document.getElementById('table');
   renderUserTable(usersFiltered);
 }
-
-
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     document.getElementById('myBtn').style.display = 'block';
@@ -142,10 +188,7 @@ function topFunction() {
   document.body.scrollTop = 0;
   document.documentElement.scrollTop = 0;
 }
-
-
 // Graficos //
-
 google.charts.load('current', { packages: ['corechart'] });
 google.charts.setOnLoadCallback(drawChart);
 function drawChart() {
@@ -156,7 +199,6 @@ function drawChart() {
     ['Completitud Lecturas', 74, '#47EADA'],
     ['Completitud Quizzes', 68, 'color: #FF009E;']
   ]);
-
   var view = new google.visualization.DataView(data);
   view.setColumns([0, 1,
     {
@@ -166,9 +208,7 @@ function drawChart() {
       role: 'annotation'
     },
     2]);
-
   var options = {
-
     width: 600,
     height: 400,
     bar: { groupWidth: '95%' },
@@ -177,4 +217,4 @@ function drawChart() {
   var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
   chart.draw(view, options);
 }
-
+*/
