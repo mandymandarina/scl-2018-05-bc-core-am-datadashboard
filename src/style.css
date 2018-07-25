@@ -14,8 +14,9 @@ body {
   /* Select */
   .seleccionadores {
     margin-left: 20%;
-    
   }
+
+  h5
   .myTable {
     width: 200%;
     border: 1px solid black;
@@ -23,6 +24,7 @@ body {
     font-family:  Montserrat,"Helvetica Neue", Arial, sans-serif;
     font-size: 14px;
     text-align: center;
+    margin-left: 5em;
     
   }
   body {margin: 0;}
@@ -185,7 +187,6 @@ body {
     margin-top: 20%;  
   }
   #myInput {
-   
     background-position: 10px 10px;
     background-repeat: no-repeat;
     width: 100%;
@@ -193,6 +194,7 @@ body {
     padding: 3px 8px 3px 13px;
     border: 1px solid  rgba(49, 48, 48, 0.295);
     margin-bottom: 12px;
+    
   }
   .titulos_table{
     margin-left: 240px;
@@ -226,4 +228,8 @@ body {
 }
 #asc{
   margin-left: 10%;
+}
+
+.tableColor{
+  background-color: #56F89A;
 }

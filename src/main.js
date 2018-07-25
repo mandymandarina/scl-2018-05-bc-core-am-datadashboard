@@ -1,12 +1,10 @@
 
 let users = null;
 let progress = null;
-let cohorts = null; // null == false => true
-// null para que sea false siempre, llaves no, corchetes si.
+let cohorts = null; 
 let usersStats = null;
 
-// se utiliza el link de git para no usar el server 
-// el link es hacia una api de ususarios que esta online
+
 fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
   .then(response => response.json())
   .then(usersJSON => {
@@ -17,10 +15,12 @@ fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
   })
   .catch(error => {
     console.error('No pudimos obtener usuarios');
-    // console.error indica un mensaje de error, indica una alerta grave
-    console.error('ERROR > ' + error.stack); // error.stack muestra donde falló el codigo, imprime donde esta el error
+  
+    console.error('ERROR > ' + error.stack); 
   });
-// se utiliza url relativa de gh pages.
+
+ 
+
 fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json')
   .then(response => response.json())
   .then(progressJSON => {
@@ -36,21 +36,18 @@ fetch('../data/cohorts.json')
   .then(response => response.json())
   .then(cohortsJSON => {
     cohorts = cohortsJSON;
-    areWeFinishedYet();// se llama en todas las respuestas por que no sabemos cual llegara primero y asi nos aseguramos si se ejecutan
+    areWeFinishedYet();
   })
   .catch(error => {
     console.error('No pudimos obtener el listado de cohorts');
     console.error('ERROR > ' + error.stack);
   });
 
-function areWeFinishedYet() { // ¿hemos terminado?
-  // se llama desde todas las promesas para que tome los tome en cuenta sin importar cual de ellos se ejecute primero
-  // vemos si users progress y cohorts ya tienen datos en su interior sino no se ejecuta
+function areWeFinishedYet() { 
   if (users && progress && cohorts) {
-    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw'); // busca el cohort que tiene ese id ya que este es el unico cohort que esta en los json
-    const courses = Object.keys(cohort.coursesIndex);
-    // guardamos el resultado de llamar a la funcion en una variable global    
-    usersStats = window.computeUsersStats(users, progress, courses);// recibe users, progress y el listado de los cursos del cohort
+    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw'); 
+    const courses = Object.keys(cohort.coursesIndex); 
+    usersStats = window.computeUsersStats(users, progress, courses);
   }
 }
 
@@ -61,9 +58,8 @@ function onToggleSort() {
   } else {
     toggleSort.innerText = 'ASC';
   }
-  // llamamos a la funcion de ordenamiento para que que ordene los usuarios
+  
   const usersFiltered  = window.sortUsers(usersStats, 'percent', direction);
-  // no se hace el getElementById por que en JS todo lo declarado en el html con un id queda como variable global :O
   table.innerHTML = '';
   for (let student of usersFiltered ) {
     table.innerHTML += `
@@ -78,7 +74,7 @@ function onToggleSort() {
   }
 }
 
-function filterStudents() {
+function filterData() {
   const search = myInput.value;
   const usersFiltered = window.filterUsers(usersStats, search);
   table.innerHTML = '';
@@ -86,10 +82,33 @@ function filterStudents() {
     table.innerHTML += `
     <tr> 
     <th scope="row">${student.name}</th>
-    </tr>`;
+    <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
   });
 }
-
+// Función Select
+function getSelectValue() {
+  let selectedValue = document.getElementById('list').value;
+  console.log(selectedValue);
+  const search = myInput.value;
+  const usersFiltered = window.filterUsers(usersStats, search);
+  table.innerHTML = '';
+  usersFiltered.forEach(student => {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+    <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
+  });
+}
 
 /*
 window.onload = () => {
@@ -124,31 +143,9 @@ function progress() {
   };
 }
 
-function courses() {
-  const cursos = document.getElementById('ad');
-  const container3 = document.getElementById('myTable');
-  const cohortJSON =
-    '../data/cohorts.json';
-  fetch(cohortJSON)
-    .then(response => response.json())
-    .then(data => {
-      console.log(data);
-      cohortData = data;
-      renderCohort(data);
-    });
-
-  const renderCohort = data => {
-    cursos.addEventListener('change', () => {
-      const cohortData = data.forEach(element => {
-        return container3.innerHTML += `<p>${element}</p>`;
-      });
-    });
-  };
-}
-
 
 function renderUserTable(data) {
-  const container = document.getElementById('myTable');
+  const container = document.getElementById('table');
   container.innerHTML = '';
   const userStats = window.comp;
   const usersData = data.forEach(element => {
@@ -167,7 +164,7 @@ function renderUserTable(data) {
 
 function users() {
   const cohort = document.getElementById('list');
-  const container = document.getElementById('myTable');
+  const container = document.getElementById('table');
   const usersJSON =
     '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
   fetch(usersJSON)
@@ -183,44 +180,10 @@ function users() {
   };
 }
 
-
-function renderProgressTable(data) {
-  const container = document.getElementById('myTable');
-  container.innerHTML = '';
-  return container.innerHTML += renderProgress;
-}
-
-function start() {
-  if (users && progress && courses) {
-    processed = computeUsersStats(users, progress, courses);
-  }
-}
-
-selectChange = (user, progress, cohorts) => {
-  let findStudents = '';
-  let orderDirection = '';
-
-  document.getElementById('list').addEventListener('change', () => {
-    let studentsCohort = document.getElementById('list').value;
-    findStudents = newProgressJSON.find(item => item[0] === studentsCohort);
-    console.log(findStudents);
-  });
-};
-// Seleccion select
-function getSelectValue() {
-  let selectedValue = document.getElementById('list').value;
-  console.log(selectValue);
-};
-
-function getSelectValue() {
-  let selectedValue = document.getElementById('ad').value;
-  console.log(selectValue);
-};
-
 function filterStudents() {
   const searchText = myInput.value;
   const usersFiltered = window.filterUsers(usersData, searchText);
-  const table = document.getElementById('myTable');
+  const table = document.getElementById('table');
 
   renderUserTable(usersFiltered);
 }
