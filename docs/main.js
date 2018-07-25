@@ -1,23 +1,25 @@
 let users = null;
 let progress = null;
-let cohorts = null; //null == false => true
-// null para que sea false siempre, llaves no, corchetes si.
+let cohorts = null; 
 let usersStats = null;
 
-// se utiliza el link de git para no usar el server 
-//el link es hacia una api de ususarios que esta online
+
 fetch('../data/cohorts/lim-2018-03-pre-core-pw/users.json')
   .then(response => response.json())
   .then(usersJSON => {
     users = usersJSON;
+    users = usersJSON;
     areWeFinishedYet();
+    
   })
   .catch(error => {
-    console.error("No pudimos obtener usuarios");
-    //console.error indica un mensaje de error, indica una alerta grave
-    console.error("ERROR > " + error.stack); //error.stack muestra donde falló el codigo, imprime donde esta el error
+    console.error('No pudimos obtener usuarios');
+  
+    console.error('ERROR > ' + error.stack); 
   });
-// se utiliza url relativa de gh pages.
+
+ 
+
 fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json')
   .then(response => response.json())
   .then(progressJSON => {
@@ -25,57 +27,194 @@ fetch('../data/cohorts/lim-2018-03-pre-core-pw/progress.json')
     areWeFinishedYet();
   })
   .catch(error => {
-    console.error("No pudimos obtener el progreso");
-    console.error("ERROR > " + error.stack);
+    console.error('No pudimos obtener el progreso');
+    console.error('ERROR > ' + error.stack);
   });
 
 fetch('../data/cohorts.json')
   .then(response => response.json())
   .then(cohortsJSON => {
     cohorts = cohortsJSON;
-    areWeFinishedYet();//se llama en todas las respuestas por que no sabemos cual llegara primero y asi nos aseguramos si se ejecutan
+    areWeFinishedYet();
   })
   .catch(error => {
-    console.error("No pudimos obtener el listado de cohorts");
-    console.error("ERROR > " + error.stack);
+    console.error('No pudimos obtener el listado de cohorts');
+    console.error('ERROR > ' + error.stack);
   });
 
-function areWeFinishedYet() { //¿hemos terminado?
-  // se llama desde todas las promesas para que tome los tome en cuenta sin importar cual de ellos se ejecute primero
-  //vemos si users progress y cohorts ya tienen datos en su interior sino no se ejecuta
+function areWeFinishedYet() { 
   if (users && progress && cohorts) {
-    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw'); //busca el cohort que tiene ese id ya que este es el unico cohort que esta en los json
-    const courses = Object.keys(cohort.coursesIndex);
-    // guardamos el resultado de llamar a la funcion en una variable global    
-    usersStats = window.computeUsersStats(users, progress, courses);//recibe users, progress y el listado de los cursos del cohort
+    const cohort = cohorts.find(item => item.id === 'lim-2018-03-pre-core-pw'); 
+    const courses = Object.keys(cohort.coursesIndex); 
+    usersStats = window.computeUsersStats(users, progress, courses);
   }
 }
-//se declara la funcion para darle funcionalidad al boton toggler y que cambie al darle click
+
 function onToggleSort() {
   const direction = toggleSort.innerText;
-  if (direction == "ASC") {
-    toggleSort.innerText = "DESC";
+  if (direction == 'ASC') {
+    toggleSort.innerText = 'DESC';
   } else {
-    toggleSort.innerText = "ASC";
+    toggleSort.innerText = 'ASC';
   }
-  //llamamos a la funcion de ordenamiento para que que ordene los usuarios
-  const sortedUsers = window.sortUsers(usersStats, "percent", direction);
-  //no se hace el getElementById por que en JS todo lo declarado en el html con un id queda como variable global :O
-  studentContainer.innerHTML = "";
-  for(let student of sortedUsers){
-    studentContainer.innerHTML += `
-      <p>${student.name} ${student.stats.percent}</p>
-    `;
+  
+  const usersFiltered  = window.sortUsers(usersStats, 'percent', direction);
+  table.innerHTML = '';
+  for (let student of usersFiltered ) {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+      <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
   }
 }
 
-function onSearchBoxChange(){
-  const search = searchBox.value;
-  const filteredUsers = window.filterUsers(usersStats, search);
-  studentContainer.innerHTML = "";
-  filteredUsers.forEach(student => {
-    studentContainer.innerHTML += `
-      <p>${student.name}</p>
-    `;
+function filterData() {
+  const search = myInput.value;
+  const usersFiltered = window.filterUsers(usersStats, search);
+  table.innerHTML = '';
+  usersFiltered.forEach(student => {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+    <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
   });
 }
+// Función Select
+function getSelectValue() {
+  let selectedValue = document.getElementById('list').value;
+  console.log(selectedValue);
+  const search = myInput.value;
+  const usersFiltered = window.filterUsers(usersStats, search);
+  table.innerHTML = '';
+  usersFiltered.forEach(student => {
+    table.innerHTML += `
+    <tr> 
+    <th scope="row">${student.name}</th>
+    <td>${student.stats.percent}</td>
+      <td></td>
+      <td></td>
+      <td></td>
+      <td></td>
+      </tr>`;
+  });
+}
+
+/*
+window.onload = () => {
+  users();
+  progress();
+  courses();
+  scrollFunction();
+};
+let newProgressJSON = null;
+let usersData = null;
+let progressData = null;
+let cohortData = null;
+function progress() {
+  const progreso = document.getElementById('ad');
+  const container2 = document.getElementById('myTable');
+  const progressJSON =
+    '../data/cohorts/lim-2018-03-pre-core-pw/progress.json';
+  console.log(progressJSON);
+  fetch(progressJSON)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      progressData = data;
+      newProgressJSON = Object.entries(progressData);
+      renderProgress(data);
+    });
+  const renderProgress = data => {
+    progreso.addEventListener('change', renderProgressTable.bind(this, data));
+  };
+}
+function renderUserTable(data) {
+  const container = document.getElementById('table');
+  container.innerHTML = '';
+  const userStats = window.comp;
+  const usersData = data.forEach(element => {
+    return container.innerHTML += '<tr>' +
+      '<td>' + '<td>' + '</td>' +
+      '<td>' + element.name + '</td>' +
+      '<td>' + +'</td>' + '</td>' + 
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' + '<td>' +
+      '<td>' + +'</td>' +  '<td>' +
+    
+      '</tr>';
+  });
+}
+function users() {
+  const cohort = document.getElementById('list');
+  const container = document.getElementById('table');
+  const usersJSON =
+    '../data/cohorts/lim-2018-03-pre-core-pw/users.json';
+  fetch(usersJSON)
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      usersData = data;
+      renderUsers(data);
+    });
+  const renderUsers = data => {
+    cohort.addEventListener('change', renderUserTable.bind(this, data));
+  };
+}
+function filterStudents() {
+  const searchText = myInput.value;
+  const usersFiltered = window.filterUsers(usersData, searchText);
+  const table = document.getElementById('table');
+  renderUserTable(usersFiltered);
+}
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    document.getElementById('myBtn').style.display = 'block';
+  } else {
+    document.getElementById('myBtn').style.display = 'none';
+  }
+}
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+// Graficos //
+google.charts.load('current', { packages: ['corechart'] });
+google.charts.setOnLoadCallback(drawChart);
+function drawChart() {
+  var data = google.visualization.arrayToDataTable([
+    ['String', 'Porcentaje', { role: 'style' }],
+    ['Completitud Total', 74, '#FFE521'],
+    ['Completitud Ejercicios', 59, '#56F89A'],
+    ['Completitud Lecturas', 74, '#47EADA'],
+    ['Completitud Quizzes', 68, 'color: #FF009E;']
+  ]);
+  var view = new google.visualization.DataView(data);
+  view.setColumns([0, 1,
+    {
+      calc: 'stringify',
+      sourceColumn: 1,
+      type: 'string',
+      role: 'annotation'
+    },
+    2]);
+  var options = {
+    width: 600,
+    height: 400,
+    bar: { groupWidth: '95%' },
+    legend: { position: 'none' },
+  };
+  var chart = new google.visualization.ColumnChart(document.getElementById('columnchart_values'));
+  chart.draw(view, options);
+}
+*/
